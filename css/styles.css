@@ -1,2 +1,17 @@
 
-.main_container { border: 1px solid #39F; }
+body { background-image: url(/images/background.png); }
+
+img {border: none}
+
+.main_container
+{
+	border: 1px solid #39F;
+	background-color:#FFF
+}
+
+a {
+	text-decoration: none;
+	color: #3C0;
+}
+
+a:hover { color:#39F }
