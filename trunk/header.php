@@ -18,7 +18,7 @@
 <tr>
 <td colspan="2" align="center" class="navigation_bar">
 <H3 class="navigation_bar">Welcome back, ***!</H3>
-<h4 class="navigation_bar"><a href="/" class="navigation_bar">Home</a> | <a href="/" class="navigation_bar">Forum</a> | <a href="/" class="navigation_bar">User Control Panel</a> | <a href="/help.php" class="navigation_bar">Help</a> | <a href="/about.php" class="navigation_bar">About Us</a></h4>
+<h4 class="navigation_bar"><a href="/" class="navigation_bar">Home</a> | <a href="/forum.php" class="navigation_bar">Forum</a> | <a href="/" class="navigation_bar">User Control Panel</a> | <a href="/help.php" class="navigation_bar">Help</a> | <a href="/about.php" class="navigation_bar">About Us</a></h4>
 </td>
 <tr>
 <td colspan="2" height="300" align="center">
