@@ -52,3 +52,8 @@ h3 {
 	color:#FFF;
 	margin: 0px 0px 0px 0px;
 }
+
+.MainForum {
+	border: 1px solid #F00;
+	border-collapse:collapse;
+}
