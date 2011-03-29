@@ -67,8 +67,13 @@ h3 {
 	height:10px;
 }
 
-.instructions {
+.instructions{
 	font-size:13px;
 	color:#808080;
 	font-style:italic;
+}
+
+.instructions2{
+	font-size:13px;
+	color:#000000;
 }
