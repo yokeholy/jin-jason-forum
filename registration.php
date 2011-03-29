@@ -3,7 +3,8 @@ include("header.php");
 ?>
 
 	<h1 style="text-align:left; margin-top:10px"><strong>First Time User Registration</strong></h1>
-	
+	<p style="text-align:left; margin-top:10px"><strong>Please fill in all fields below and click Submit.
+		<br />Click Reset to Submit</strong></p>
 	<form name="Register" action="functions/registration_action.php" method="post" style="text-align:left">
 		<table width="100%" align="left" class="registration">
 			<tr>
