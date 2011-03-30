@@ -1,7 +1,7 @@
 ﻿<?php 
 include("header.php");
-
-$Post['LastUser'] = "Jin";
+//query from database
+$query = mysql_query("SELECT * FROM posts WHERE PostType = 0 LIMIT 0, 25");
 ?>
 
 
@@ -14,16 +14,25 @@ $Post['LastUser'] = "Jin";
 	</tr>
 
 <?php
-for($i = 1; $i <= 50; $i ++)
+while($result = mysql_fetch_array($query))
 {
-	$Post['Subject'] = "Hello! Here is to generate some random number: " . rand(10000000,0) . " - " . rand(10000000,0) . " - " . rand(10000000,0) . " - " . rand(10000000,0);
-	$Post['LastTime'] = date('d M Y H:i:s');
+	$queryUser = mysql_query("SELECT * FROM users WHERE UserID = ".$result['UserID']);
+	$resultUser = mysql_fetch_array($queryUser);
+	$PostID = $result['PostID'];
+	$queryReply = mysql_query("SELECT * FROM posts WHERE ThreadID = '".$PostID."' ORDER BY 'PostID' DESC LIMIT 0, 1");
+	if($queryReply)
+	{
+	$resultReply = mysql_fetch_array($queryReply);
+	$queryReplyUser = mysql_query("SELECT * FROM users WHERE UserID = ".$resultReply['UserID']);
+	$resultReplyUser = mysql_fetch_array($queryReplyUser);
+	}
+
 ?>
 
 	<tr onmouseover="style.backgroundColor='#ddd'" onmouseout="style.backgroundColor='#fff'">
-		<td class="MainForum"><p><strong><?php echo $Post['Subject'];?></strong></p></td>
-		<td class="MainForum" align="center"><p><?php echo $Post['LastUser'];?> <br />at <?php echo $Post['LastTime'];?></p></td>
-		<td class="MainForum" align="center"><p><?php echo $Post['LastUser'];?> <br />at <?php echo $Post['LastTime'];?></p></td>
+		<td class="MainForum"><p><strong><?php echo $result['Subject'];?></strong></p></td>
+		<td class="MainForum" align="center"><p>by <strong><?php echo $resultUser['UserName'];?></strong> <br />at <?php echo $result['PostDate']." ".$result['PostTime'];?></p></td>
+		<td class="MainForum" align="center"><p>by <strong><?php echo $resultReplyUser['UserName'];?></strong> <br />at <?php echo $resultReply['PostTime'];?></p></td>
 	</tr>
 	
 <?php
