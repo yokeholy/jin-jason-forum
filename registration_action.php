@@ -5,7 +5,7 @@ include("header.php");
 	<?php
 		extract($_POST);
 		
-		$email_search_pattern = "/^[_\.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+\.)+[a-zA-Z]{2,6}$/i";
+		$email_search_pattern = "/^[_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,6}$/i";
 		if (!preg_match($email_search_pattern, $EmailAddr))
 		{
 			print("<p><span class = 'error'>
