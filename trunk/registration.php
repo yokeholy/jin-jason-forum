@@ -5,7 +5,7 @@ include("header.php");
 	<h1 style="text-align:left; margin-top:10px"><strong>First Time User Registration</strong></h1>
 	<div class="instructions2" style="text-align:left; margin-top:10px"/>Please fill in all fields below and click Submit.
 		&nbsp;Click Reset to clear all fields.</div><br />
-	<form name="Register" action="functions/registration_action.php" method="post" style="text-align:left">
+	<form name="Register" action="registration_action.php" method="post" style="text-align:left">
 		<table width="100%" align="left" class="registration">
 			<tr>
 				<td width="100">Username: &nbsp;</td>
