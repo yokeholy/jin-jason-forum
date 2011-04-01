@@ -26,9 +26,9 @@ include ('/config/database.php');
 					<h4 class="navigation_bar"><a href="/" class="navigation_bar">Home</a> | <a href="/forum.php" class="navigation_bar">Forum</a> | 
 						<a href="/" class="navigation_bar">User Control Panel</a> | <a href="/help.php" class="navigation_bar">Help</a> | 
 						<a href="/about.php" class="navigation_bar">About Us</a></h4>
-					<form name="Login" action="functions/login_action.php" method="post">
-						Username:<input type="text" size="10" name="Username" />
-						Password:<input type="password" size="10" name="Password" />
+					<form name="Login" action="/functions/login_action.php" method="post">
+						Username:<input name="Username" type="text" size="10" maxlength="20" />
+						Password:<input name="Password" type="password" size="10" maxlength="20" />
 						<input type="submit" value="Login" />
 						<input type="reset" value="Reset" />
 						<a href="/registration.php" class="navigation_bar">First Time User?</a>

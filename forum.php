@@ -28,7 +28,7 @@ while($result = mysql_fetch_array($query))
 ?>
 
 	<tr onmouseover="style.backgroundColor='#ddd'" onmouseout="style.backgroundColor='#fff'">
-		<td class="MainForum"><p><strong><?php echo $result['Subject'];?></strong></p></td>
+		<td class="MainForum"><p><strong><a href="/viewthread.php?tid=<?php echo $result['PostID']?>"><?php echo $result['Subject'];?></a></strong></p></td>
 		<td class="MainForum" align="center"><p>by <strong><?php echo $resultUser['UserName'];?></strong> <br />at <?php echo $result['PostDate']." ".$result['PostTime'];?></p></td>
 		<td class="MainForum" align="center"><p>by <strong><?php echo $resultReplyUser['UserName'];?></strong> <br />at <?php echo $resultReply['PostDate']." ".$resultReply['PostTime'];?></p></td>
 	</tr>
@@ -39,7 +39,7 @@ while($result = mysql_fetch_array($query))
 	{
 ?>
 	<tr onmouseover="style.backgroundColor='#ddd'" onmouseout="style.backgroundColor='#fff'">
-		<td class="MainForum"><p><strong><?php echo $result['Subject'];?></strong></p></td>
+		<td class="MainForum"><p><strong><a href="/viewthread.php?tid=<?php echo $result['PostID']?>"><?php echo $result['Subject'];?></a></strong></p></td>
 		<td class="MainForum" align="center"><p>by <strong><?php echo $resultUser['UserName'];?></strong> <br />at <?php echo $result['PostDate']." ".$result['PostTime'];?></p></td>
 		<td class="MainForum" align="center"><p>by <strong><?php echo $resultUser['UserName'];?></strong> <br />at <?php echo $result['PostDate']." ".$result['PostTime'];?></p></td>
 	</tr>
