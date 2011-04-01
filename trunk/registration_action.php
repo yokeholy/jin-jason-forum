@@ -84,11 +84,11 @@ include("header.php");
 	
 	print("<p>Congratulations, $FirstName, you have successfully registered!</p>");
 	
-	$queryAdd = "INSERT INTO Users VALUES(NULL, '$UserName', MD5('$Password'), '$FirstName', '$LastName', '$EmailAddr')";
+	$queryAdd = "INSERT INTO users VALUES(NULL, '$UserName', MD5('$Password'), '$FirstName', '$LastName', '$EmailAddr')";
 	if(!($result = mysql_query($queryAdd)))
 	{
 		print("Could not execute query! <br />");
-		die(mql_error() . include("footer.php"));
+		die(mysql_error() . include("footer.php"));
 	}
 	
 	
