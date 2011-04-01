@@ -1,5 +1,5 @@
 ﻿<?php 
-include("header.php");
+include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 ?>
 
 <h1>Welcome to J2 Forum.</h1>
@@ -11,5 +11,5 @@ include("header.php");
 
 
 <?php
-include("footer.php");
+include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
 ?>

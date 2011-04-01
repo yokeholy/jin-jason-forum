@@ -1,7 +1,7 @@
 ﻿<?php 
-include("header.php");
+include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 ?>
 
 <?php
-include("footer.php");
+include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
 ?>

@@ -1,5 +1,5 @@
 ﻿<?php 
-include("header.php");
+include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 ?>
 
 	<h1 style="text-align:left; margin-top:10px"><strong>First Time User Registration</strong></h1>
@@ -38,5 +38,5 @@ include("header.php");
 
 
 <?php
-include("footer.php");
+include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
 ?>

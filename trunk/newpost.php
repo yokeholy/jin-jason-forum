@@ -1,5 +1,5 @@
 ﻿<?php 
-include("header.php");
+include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 if(isset($_GET['NewType']) && $_GET['NewType'] == 1) // If the new post is a reply to an existing thread. NewType 1 means that this post is a reply and will cause the page to show the New Reply interface. Otherwise, it's gonna show the New Thread interface.
 {
 ?>
@@ -43,5 +43,5 @@ else
 </form>
 <?php
 }
-include("footer.php");
+include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
 ?>
