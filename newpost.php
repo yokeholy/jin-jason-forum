@@ -26,6 +26,21 @@ else
 {
 ?>
 <h1 align="left">New Thread</h1>
+<form action="/functions/addpost_action.php" method="post">
+	<table cellpadding="0" cellspacing="0" class="AddPostTable">
+		<tr>
+			<td class="AddPost"><p><strong>Subject:</strong></p></td>
+			<td class="AddPost"><input name="Subject" size="75"></td>
+		</tr>
+		<tr>
+			<td class="AddPost"><p><strong>Content:</strong></p></td>
+			<td class="AddPost"><textarea name="Content" cols="100" rows="20"></textarea></td>
+		</tr>
+		<tr align="center">
+			<td colspan="2" class="AddPost"><input name="Submit" type="submit" value="Post it RIGHT NOW!"><input type="reset" value="No, clean them for me"></td>
+		</tr>
+	</table>
+</form>
 <?php
 }
 include("footer.php");

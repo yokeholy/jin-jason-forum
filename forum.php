@@ -4,7 +4,7 @@ include("header.php");
 $query = mysql_query("SELECT * FROM posts WHERE PostType = 0 LIMIT 0, 25");
 ?>
 
-
+<p align="left"><a style="font-size:16px; margin:10px; height:20px;" href="newpost.php">Add a Thread</a></p>
 
 <table class="MainForum" width="90%" cellspacing="0" cellpadding="0">
 	<tr valign="middle" onmouseover="style.backgroundColor='#ddd'" onmouseout="style.backgroundColor='#fff'">
@@ -49,6 +49,8 @@ while($result = mysql_fetch_array($query))
 }
 ?>
 </table>
+
+<p align="left"><a style="font-size:16px; margin:10px; height:20px;" href="newpost.php">Add a Thread</a></p>
 
 <?php
 include("footer.php");
