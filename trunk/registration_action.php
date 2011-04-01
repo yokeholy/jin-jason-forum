@@ -16,13 +16,23 @@ include("header.php");
 				- Contain at least 3 characters and not exceed 20 characters<br />
 				- Not contain spaces<br />
 				- Only contain alphabetic characters, digits, or underscores<br /><br />
-				Click the Back button, enter a valid First Name, then resubmit.<br /><br />
+				Click the Back button, enter a valid Username, then resubmit.<br /><br />
 				Thank You.</span></p>");
 			die(include("footer.php")); // terminate script execution
 		}
-		
-		
-		
+		else
+		{
+			$queryCheckDuplicateUsername = "SELECT UserName FROM users WHERE UserName = '".$UserName."'";
+			if(mysql_fetch_row(mysql_query($queryCheckDuplicateUsername)))
+			{
+				print("<p><span class = 'error'>
+				Username already exists.</span><br /><br />
+				Click the Back button, try a different Username, then resubmit.<br /><br />
+				Thank You.</span></p>");
+				die(include("footer.php")); // terminate script execution			
+			}
+		}
+					
 		$password_search_pattern = "/^[_0-9a-z-]{6,20}$/i";
 		if (!preg_match($password_search_pattern, $Password))
 		{
@@ -80,6 +90,18 @@ include("header.php");
 				Thank You.</span></p>");
             die(include("footer.php")); // terminate script execution
 		}
+		else
+		{
+			$queryCheckDuplicateEmailAddr = "SELECT EmailAddr FROM users WHERE EmailAddr = '".$EmailAddr."'";
+			if(mysql_fetch_row(mysql_query($queryCheckDuplicateEmailAddr)))
+			{
+				print("<p><span class = 'error'>
+				The email address already exists under another Username.</span><br /><br />
+				Click the Back button, try a different email address, then resubmit.<br /><br />
+				Thank You.</span></p>");
+				die(include("footer.php")); // terminate script execution			
+			}
+		}
 		
 	
 	print("<p>Congratulations, $FirstName, you have successfully registered!</p>");
@@ -90,8 +112,7 @@ include("header.php");
 		print("Could not execute query! <br />");
 		die(mysql_error() . include("footer.php"));
 	}
-	
-	
+		
 	?>
 	
 <?php
