@@ -9,23 +9,23 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 		<table width="100%" align="left" class="registration">
 			<tr>
 				<td width="100">Username: &nbsp;</td>
-				<td><input type="text" size="20" name="UserName" /> <span class="instructions"> (3 to 20 characters) </span> </td>
+				<td><input name="UserName" type="text" size="20" maxlength="20" /> <span class="instructions"> (3 to 20 characters) </span> </td>
 			</tr>
 			<tr>
 				<td>Password: &nbsp;</td>
-				<td><input type="password" size="20" name="Password" /> <span class="instructions"> (6 to 20 characters) </span>  </td>
+				<td><input name="Password" type="password" size="20" maxlength="20" /> <span class="instructions"> (6 to 20 characters) </span>  </td>
 			</tr>
 			<tr>
 				<td>First Name: &nbsp;</td>
-				<td><input type="text" size="20" name="FirstName" /> <span class="instructions"> (2 to 20 characters) </span>  </td>
+				<td><input name="FirstName" type="text" size="20" maxlength="20" /> <span class="instructions"> (2 to 20 characters) </span>  </td>
 			</tr>
 			<tr>
 				<td>Last Name: &nbsp;</td>
-				<td><input type="text" size="20" name="LastName" /> <span class="instructions"> (2 to 20 characters) </span>  </td>
+				<td><input name="LastName" type="text" size="20" maxlength="20" /> <span class="instructions"> (2 to 20 characters) </span>  </td>
 			</tr>
 			<tr>
 				<td>Email Address: &nbsp;</td>
-				<td><input type="text" size="40" name="EmailAddr" /> <span class="instructions"> (Ex. yourname@domain.com) (Maximum 40 characters) </span>  </td>
+				<td><input name="EmailAddr" type="text" size="40" maxlength="40" /> <span class="instructions"> (Ex. yourname@domain.com) (Maximum 40 characters) </span>  </td>
 			</tr>
 			<tr>
 				<td colspan="2">

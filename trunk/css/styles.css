@@ -30,7 +30,8 @@ h1 {
 h2 {
 	font-family: Arial, Helvetica, sans-serif;
 	color: #74F;
-	filter: Shadow(Color=#000000, Direction=1);	
+	filter: Shadow(Color=#000000, Direction=1);
+	margin:0px;
 }
 
 h3 {
@@ -91,5 +92,16 @@ h3 {
 .AddPost
 {
 	border:1px solid #69F;
+	border-collapse:collapse;
+}
+
+.ThreadTable
+{
+	border:1px solid #CCC;
+}
+
+.Thread
+{
+	border:1px solid #CCC;
 	border-collapse:collapse;
 }
