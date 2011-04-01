@@ -1,5 +1,5 @@
 ﻿<?php 
-include("header.php");
+include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 //query from database
 $query = mysql_query("SELECT * FROM posts WHERE PostType = 0 LIMIT 0, 25");
 ?>
@@ -53,5 +53,5 @@ while($result = mysql_fetch_array($query))
 <p align="left"><a style="font-size:16px; margin:10px; height:20px;" href="newpost.php">Add a Thread</a></p>
 
 <?php
-include("footer.php");
+include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
 ?>

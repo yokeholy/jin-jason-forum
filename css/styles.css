@@ -2,6 +2,7 @@
 body {
 	background-image: url(/images/background.png);
 	margin: 0px;
+	top:0px;
 }
 
 img {border: none}
@@ -42,7 +43,7 @@ h3 {
 {
 	border: 1px solid #39F;
 	background-color:#FFF;
-	margin: 0px 0px 0px 0px;
+	margin: 0px;
 		top: 0px;
 
 }
@@ -51,7 +52,7 @@ h3 {
 {
 	background-color:#06C;
 	color:#FFF;
-	margin: 0px 0px 0px 0px;
+	margin: 0px;
 }
 
 .MainForum {

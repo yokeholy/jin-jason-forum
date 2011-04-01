@@ -1,5 +1,5 @@
 <?php 
-include("header.php");
+include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 ?>
 
 	<?php
@@ -110,11 +110,11 @@ include("header.php");
 	if(!($result = mysql_query($queryAdd)))
 	{
 		print("Could not execute query! <br />");
-		die(mysql_error() . include("footer.php"));
+		die(mysql_error() . include("{$_SERVER['DOCUMENT_ROOT']}/footer.php"));
 	}
 		
 	?>
 	
 <?php
-include("footer.php");
+include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
 ?>
