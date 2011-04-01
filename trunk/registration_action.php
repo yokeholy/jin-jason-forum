@@ -4,6 +4,8 @@ include("header.php");
 
 	<?php
 		extract($_POST);
+		
+		
 
 		$username_search_pattern = "/^[_0-9a-z]{3,20}$/i";
 		if (!preg_match($username_search_pattern, $UserName))
@@ -18,9 +20,11 @@ include("header.php");
 				Thank You.</span></p>");
 			die(include("footer.php")); // terminate script execution
 		}
-
+		
+		
+		
 		$password_search_pattern = "/^[_0-9a-z-]{6,20}$/i";
-		if (!preg_match($username_search_pattern, $Password))
+		if (!preg_match($password_search_pattern, $Password))
 		{
 			print("<p><span class = 'error'>
 				Invalid Password format.</span><br /><br />
@@ -77,8 +81,18 @@ include("header.php");
             die(include("footer.php")); // terminate script execution
 		}
 		
+	
+	print("<p>Congratulations, $FirstName, you have successfully registered!</p>");
+	
+	$queryAdd = "INSERT INTO Users VALUES(NULL, '$UserName', MD5('$Password'), '$FirstName', '$LastName', '$EmailAddr')";
+	if(!($result = mysql_query($queryAdd)))
+	{
+		print("Could not execute query! <br />");
+		die(mql_error() . include("footer.php"));
+	}
+	
+	
 	?>
-	<p>Hi</p>
 	
 <?php
 include("footer.php");

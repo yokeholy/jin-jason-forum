@@ -9,19 +9,19 @@ include("header.php");
 		<table width="100%" align="left" class="registration">
 			<tr>
 				<td width="100">Username: &nbsp;</td>
-				<td><input type="text" size="20" name="UserName" /> <span class="instructions"> (Maximum 20 characters) </span> </td>
+				<td><input type="text" size="20" name="UserName" /> <span class="instructions"> (3 to 20 characters) </span> </td>
 			</tr>
 			<tr>
 				<td>Password: &nbsp;</td>
-				<td><input type="password" size="20" name="Password" /> <span class="instructions"> (Maximum 20 characters) </span>  </td>
+				<td><input type="password" size="20" name="Password" /> <span class="instructions"> (6 to 20 characters) </span>  </td>
 			</tr>
 			<tr>
 				<td>First Name: &nbsp;</td>
-				<td><input type="text" size="20" name="FirstName" /> <span class="instructions"> (Maximum 20 characters) </span>  </td>
+				<td><input type="text" size="20" name="FirstName" /> <span class="instructions"> (2 to 20 characters) </span>  </td>
 			</tr>
 			<tr>
 				<td>Last Name: &nbsp;</td>
-				<td><input type="text" size="20" name="LastName" /> <span class="instructions"> (Maximum 20 characters) </span>  </td>
+				<td><input type="text" size="20" name="LastName" /> <span class="instructions"> (2 to 20 characters) </span>  </td>
 			</tr>
 			<tr>
 				<td>Email Address: &nbsp;</td>
