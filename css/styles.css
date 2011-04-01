@@ -80,3 +80,15 @@ h3 {
 
 .error    { color: red }
 .distinct { color: blue }
+
+.AddPostTable
+{
+	border:1px solid #69F;
+	border-collapse:collapse;
+}
+
+.AddPost
+{
+	border:1px solid #69F;
+	border-collapse:collapse;
+}
