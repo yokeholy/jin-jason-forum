@@ -24,7 +24,7 @@ include ('/config/database.php');
 				<td colspan="2" align="center" class="navigation_bar">
 					<h3 class="navigation_bar">Welcome back, ***!</H3>
 					<h4 class="navigation_bar"><a href="/" class="navigation_bar">Home</a> | <a href="/forum.php" class="navigation_bar">Forum</a> | 
-						<a href="/" class="navigation_bar">User Control Panel</a> | <a href="/help.php" class="navigation_bar">Help</a> | 
+						<a href="/control_panel.php" class="navigation_bar">User Control Panel</a> | <a href="/help.php" class="navigation_bar">Help</a> | 
 						<a href="/about.php" class="navigation_bar">About Us</a></h4>
 					<form name="Login" action="/functions/login_action.php" method="post">
 						Username:<input name="Username" type="text" size="10" maxlength="20" />
