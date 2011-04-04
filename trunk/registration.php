@@ -8,12 +8,16 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 	<form name="Register" action="registration_action.php" method="post" style="text-align:left">
 		<table width="100%" align="left" class="registration">
 			<tr>
-				<td width="100">Username: &nbsp;</td>
+				<td width="125">Username: &nbsp;</td>
 				<td><input name="UserName" type="text" size="20" maxlength="20" /> <span class="instructions"> (3 to 20 characters) </span> </td>
 			</tr>
 			<tr>
 				<td>Password: &nbsp;</td>
 				<td><input name="Password" type="password" size="20" maxlength="20" /> <span class="instructions"> (6 to 20 characters) </span>  </td>
+			</tr>
+			<tr>
+				<td>Confirm Password: &nbsp;</td>
+				<td><input name="ConfirmPassword" type="password" size="20" maxlength="20" /> <span class="instructions"> (6 to 20 characters) </span>  </td>
 			</tr>
 			<tr>
 				<td>First Name: &nbsp;</td>

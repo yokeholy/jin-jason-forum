@@ -3,9 +3,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 ?>
 
 	<?php
-		extract($_POST);
-		
-		
+		extract($_POST);		
 
 		$username_search_pattern = "/^[_0-9a-z]{3,20}$/i";
 		if (!preg_match($username_search_pattern, $UserName))
@@ -46,7 +44,16 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 				Thank You.</span></p>");
 			die(include("footer.php")); // terminate script execution
 		}
-
+		
+		if($Password != $ConfirmPassword)
+		{
+			print("<p><span class = 'error'>
+				Password mismatch.</span><br /><br />
+				Click the Back button, make sure the Password and Confirm Password fields match exactly, then resubmit.<br /><br />
+				Thank You.</span></p>");
+			die(include("footer.php")); // terminate script execution
+		}
+		
 		$firstname_search_pattern = "/^[a-z]{1}[a-z-]{1,19}$/i";
 		if (!preg_match($firstname_search_pattern, $FirstName))
 		{
