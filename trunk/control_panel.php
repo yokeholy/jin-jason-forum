@@ -1,24 +1,30 @@
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
+//session_start();
 ?>
 
 <?php
 	extract($_POST);
+	$UserName = $_SESSION['Username'];
+	$EmailAddr = $_SESSION['EmailAddr'];
+//	$getEmailAddr = "SELECT EmailAddr FROM users WHERE UserName = '".$UserName."'";
+//	$EmailAddr = mysql_fetch_row(mysql_query($getEmailAddr));
+	
 ?>
 
 
 	<h1 style="text-align:left; margin-top:10px"><strong>User Control Panel</strong></h1>
-	<h3 style="text-align:left; margin-top:10px">Welcome, FirstName!  You can change your preferences here.</h3>
+	<h3 style="text-align:left; margin-top:10px">Welcome, <?php print($UserName);?>!  You can change your preferences here.</h3>
 	
 	<div class="control_panel" style="text-align:left; margin-top:10px"/>Current User Info:</div>
 	<table width="50%" align="left" class="control_panel">
 		<tr>
 			<td>Username: &nbsp;</td>
-			<td>How do I put $UserName here?</td>
+			<td><?php print($UserName);?></td>
 		</tr>
 		<tr>
 			<td>Email Address: &nbsp;</td>
-			<td>How do I put $EmailAddr here?</td>
+			<td><?php print($EmailAddr);?></td>
 		</tr>
 		<tr>
 			<td>Registration Date: &nbsp;</td>
