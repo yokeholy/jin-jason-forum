@@ -111,14 +111,27 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 		}
 		
 	
-	print("<p>Congratulations, $FirstName, you have successfully registered!</p>");
 	
-	$queryAdd = "INSERT INTO users VALUES(NULL, '$UserName', MD5('$Password'), '$FirstName', '$LastName', '$EmailAddr')";
+
+	// get date and time:
+	$now = getdate();
+	// set up variables:
+	$year = $now['year'];
+	$month = $now['mon'];
+	$day = $now['mday'];
+	$hours = $now['hours'];
+	$minutes = $now['minutes'];
+	$seconds = $now['seconds'];
+	$dateAndTime = "$year-$month-$day  $hours:$minutes:$seconds";
+	
+	$queryAdd = "INSERT INTO users VALUES(NULL, '$UserName', MD5('$Password'), '$FirstName', '$LastName', '$EmailAddr', '$dateAndTime')";
 	if(!($result = mysql_query($queryAdd)))
 	{
 		print("Could not execute query! <br />");
 		die(mysql_error() . include("{$_SERVER['DOCUMENT_ROOT']}/footer.php"));
 	}
+	else
+		print("<p>Congratulations, $FirstName, you have successfully registered!</p>");
 		
 	?>
 	
