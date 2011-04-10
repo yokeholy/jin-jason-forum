@@ -9,10 +9,9 @@ $queryCheckForPassword = "SELECT UserName FROM users WHERE UserName = '".$Userna
 
 
 
-
 if(mysql_fetch_row(mysql_query($queryCheckForPassword)))
 {
-	print("<p>Welcome, $Username, !  You have successfully logged in!</p>"); // UserName vs. Username??????
+	print("<p>Welcome, $Username!  You have successfully logged in!</p>"); // UserName vs. Username??????
 }
 else if(mysql_fetch_row(mysql_query($queryCheckForUsername)) && !mysql_fetch_row(mysql_query($queryCheckForPassword)))
 {
@@ -26,7 +25,7 @@ else
 {
 	print("<p><span class = 'error'>
 	Username does not exist.</span><br /><br />
-	Re-enter a valid Username and try again.<br /><br />
+	Re-enter a valid Username and try again, or click \"First Time User?\" above.<br /><br />
 	Thank You.</span></p>");
 	die(include("{$_SERVER['DOCUMENT_ROOT']}footer.php")); // terminate script execution			
 }
