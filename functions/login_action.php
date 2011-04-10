@@ -5,15 +5,38 @@ extract($_POST);
 $passscram= md5($Password);
 $queryCheckForUsername = "SELECT UserName FROM users WHERE UserName = '".$UserName."'";
 $queryCheckForPassword = "SELECT UserName FROM users WHERE UserName = '".$UserName."' AND Password = '".$passscram."'";
-$getEmailAddr = "SELECT EmailAddr FROM users WHERE UserName = '".$UserName."'";
-$EmailAddr = mysql_query($getEmailAddr);
+
+
+
+$query = "SELECT EmailAddr FROM users WHERE UserName = '".$UserName."'";
+
+$row = (mysql_fetch_row(mysql_query($query)));
+$EmailAddr = $row[0];
+
+$query = "SELECT * FROM users";
+$row = (mysql_fetch_row(mysql_query($query)));
+$a = $row[0];
+$b = $row[1];
+$c = $row[2];
+$d = $row[3];
+$e = $row[4];
+$f = $row[5];
+
+echo $a;
+echo $b;
+echo $c;
+echo $d;
+echo $e;
+echo $f;
 
 if(mysql_fetch_row(mysql_query($queryCheckForPassword)))
 {
 	print("<p>Welcome, $UserName!  You have successfully logged in!</p>"); // UserName vs. Username??????
 	
-	$_SESSION['Username'] = $UserName;
-	$_SESSION['EmailAddr'] = $EmailAddr;
+	//$_SESSION['UserName'] = $UserName;
+	//$_SESSION['Password'] = $Password;
+	//$_SESSION['EmailAddr'] = $EmailAddr;
+	
 
 //	print($_SESSION['Username']);
 }
@@ -36,6 +59,9 @@ else
 
 // this line can be taken out eventually
 echo ('<p>Your username input is: '.$_POST['UserName'].'<br />And your password input is: '.MD5($_POST['Password']).'(MD5 hashed)</p>');
+
+
+echo $UserName;
 
 ?>
 
