@@ -13,6 +13,21 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 	echo $EmailAddr;
 //	$getEmailAddr = "SELECT EmailAddr FROM users WHERE UserName = '".$UserName."'";
 //	$EmailAddr = mysql_fetch_row(mysql_query($getEmailAddr));
+
+// get date and time:
+	$now = getdate();
+
+	$year = $now['year'];
+	$month = $now['mon'];
+	$day = $now['mday'];
+	$hours = $now['hours'];
+	$minutes = $now['minutes'];
+	$seconds = $now['seconds'];
+	
+	print("<p>$year-$month-$day  $hours:$minutes:$seconds</p>");
+
+	$dateAndTime = "<p>$year-$month-$day  $hours:$minutes:$seconds</p>";
+	print($dateAndTime);
 	
 ?>
 
