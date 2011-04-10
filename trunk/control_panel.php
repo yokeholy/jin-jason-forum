@@ -5,8 +5,12 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 
 <?php
 	extract($_POST);
-	$UserName = $_SESSION['Username'];
+	$UserName = $_SESSION['UserName'];
+	$Password = $_SESSION['Password'];
 	$EmailAddr = $_SESSION['EmailAddr'];
+	echo $UserName;
+	echo $Password;
+	echo $EmailAddr;
 //	$getEmailAddr = "SELECT EmailAddr FROM users WHERE UserName = '".$UserName."'";
 //	$EmailAddr = mysql_fetch_row(mysql_query($getEmailAddr));
 	
