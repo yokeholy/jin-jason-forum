@@ -5,6 +5,13 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 
 <?php
 	extract($_POST);
+	
+	if(isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'] == 1)
+	{
+			
+	
+	
+	
 	$UserName = $_SESSION['UserName'];
 	$Password = $_SESSION['Password'];
 	$EmailAddr = $_SESSION['EmailAddr'];
@@ -24,10 +31,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 	$minutes = $now['minutes'];
 	$seconds = $now['seconds'];
 	
-	print("<p>$year-$month-$day  $hours:$minutes:$seconds</p>");
+	//print("<p>$year-$month-$day  $hours:$minutes:$seconds</p>");
 
 	$dateAndTime = "<p>$year-$month-$day  $hours:$minutes:$seconds</p>";
-	print($dateAndTime);
+	print("Last login: " . $dateAndTime);
 	
 ?>
 
@@ -48,6 +55,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 		</tr>
 		<tr>
 			<td>Registration Date: &nbsp;</td>
+			<td><?php print($dateAndTime);?></td>
+		</tr>
+		<tr>
+			<td>Last Login: &nbsp;</td>
 			<td>How do I put $RegDate here?</td>
 		</tr>
 		<tr>
@@ -101,7 +112,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 		</table>
 	</form>
 
+	
 
 <?php
+} // end if (checking if LoggedIn is valid)
 include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
 ?>
