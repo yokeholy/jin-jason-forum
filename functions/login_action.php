@@ -1,5 +1,5 @@
 <?php 
-include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
+
 extract($_POST);
 
 $passscram= md5($Password);
@@ -31,25 +31,34 @@ $_SESSION['LoggedIn'] = 0;
 
 if(mysql_fetch_row(mysql_query($queryCheckForPassword)))
 {
-	print("<p>Welcome, $UserName!  You have successfully logged in!</p>"); // UserName vs. Username??????
 	$_SESSION['LoggedIn'] = 1;
+	include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
+	print("<p>Welcome, $UserName!  You have successfully logged in!</p>");
 	
-	$query = "SELECT EmailAddr FROM users WHERE UserName = '".$UserName."'";
-
-	$row = (mysql_fetch_row(mysql_query($query)));
+	
+	// put variables from POST into SESSION (typed in when logging in)
+	$_SESSION['UserName'] = $UserName;
+	$_SESSION['Password'] = $Password;
+	
+	// get EmailAddr to use in User Control Panel
+	$queryGetEmailAddr = "SELECT EmailAddr FROM users WHERE UserName = '".$UserName."'";
+	$row = (mysql_fetch_row(mysql_query($queryGetEmailAddr)));
 	$EmailAddr = $row[0];
+	$_SESSION['EmailAddr'] = $EmailAddr;
 	
 	// get OrigSignup to use in User Control Panel
 	$queryGetOrigSignup = "SELECT OrigSignup FROM users WHERE UserName = '".$UserName."'";
 	$row = (mysql_fetch_row(mysql_query($queryGetOrigSignup)));
 	$OrigSignup = $row[0];
+	$_SESSION['OrigSignup'] = $OrigSignup;
 
 	// get LastLogin to use in User Control Panel
 	$queryGetLastLogin = "SELECT LastLogin FROM users WHERE UserName = '".$UserName."'";
 	$row = (mysql_fetch_row(mysql_query($queryGetLastLogin)));
 	$LastLogin = $row[0];
+	$_SESSION['LastLogin'] = $LastLogin;
 	
-	// get current date and time:
+	// get current date and time to update new LastLogin
 	$now = getdate();
 	$year = $now['year'];
 	$month = $now['mon'];
@@ -61,18 +70,9 @@ if(mysql_fetch_row(mysql_query($queryCheckForPassword)))
 	$DateAndTime = "$year-$month-$day  $hours:$minutes:$seconds";
 	print("current date/time: " . $DateAndTime . "\n");	
 	print("last login: " . $LastLogin . "\n");
-
 	
-	$_SESSION['UserName'] = $UserName;
-	$_SESSION['Password'] = $Password;
-	$_SESSION['EmailAddr'] = $EmailAddr;
-	$_SESSION['OrigSignup'] = $OrigSignup;
-	$_SESSION['LastLogin'] = $LastLogin;
-	
-	$query = "UPDATE users SET LastLogin = '".$DateAndTime."' WHERE UserName = '".$UserName."'";
-	mysql_query($query);
-
-//	print($_SESSION['Username']);
+	$queryUpdateLastLogin = "UPDATE users SET LastLogin = '".$DateAndTime."' WHERE UserName = '".$UserName."'";
+	mysql_query($queryUpdateLastLogin);
 }
 else if(mysql_fetch_row(mysql_query($queryCheckForUsername)) && !mysql_fetch_row(mysql_query($queryCheckForPassword)))
 {
