@@ -1,6 +1,10 @@
 ﻿<?php
 include ('/config/database.php');
-session_start();
+if(!isset($_SESSION['SessionStarted']))
+{
+	session_start();
+	$_SESSION['SessionStarted'] = 1;
+}
 ?>
 
 <?xml version = "1.0" encoding = "utf-8"?>

@@ -1,5 +1,7 @@
 <?php 
 include("{$_SERVER['DOCUMENT_ROOT']}/config/database.php");
+session_start();
+$_SESSION['SessionStarted'] = 1;
 extract($_POST);
 
 $passscram= md5($Password);
@@ -31,9 +33,6 @@ $_SESSION['LoggedIn'] = 0;
 
 if(mysql_fetch_row(mysql_query($queryCheckForPassword)))
 {
-	$_SESSION['LoggedIn'] = 1;
-	include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
-	print("<p>Welcome, $UserName!  You have successfully logged in!</p>");
 	
 	
 	// put variables from POST into SESSION (typed in when logging in)
@@ -67,15 +66,22 @@ if(mysql_fetch_row(mysql_query($queryCheckForPassword)))
 	$minutes = $now['minutes'];
 	$seconds = $now['seconds'];
 
+	$_SESSION['LoggedIn'] = 1;
+	include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
+	print("<p>Welcome, $UserName!  You have successfully logged in!</p>");
+	
 	$DateAndTime = "$year-$month-$day  $hours:$minutes:$seconds";
 	print("current date/time: " . $DateAndTime . "\n");	
 	print("last login: " . $LastLogin . "\n");
-	
+
 	$queryUpdateLastLogin = "UPDATE users SET LastLogin = '".$DateAndTime."' WHERE UserName = '".$UserName."'";
 	mysql_query($queryUpdateLastLogin);
+	
+
 }
 else if(mysql_fetch_row(mysql_query($queryCheckForUsername)) && !mysql_fetch_row(mysql_query($queryCheckForPassword)))
 {
+	include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 	print("<p><span class = 'error'>
 	Incorrect Password.</span><br /><br />
 	Re-enter Username and Password and try again.<br /><br />
@@ -84,6 +90,7 @@ else if(mysql_fetch_row(mysql_query($queryCheckForUsername)) && !mysql_fetch_row
 }
 else
 {
+	include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 	print("<p><span class = 'error'>
 	Username does not exist.</span><br /><br />
 	Re-enter a valid Username and try again, or click \"First Time User?\" above.<br /><br />
