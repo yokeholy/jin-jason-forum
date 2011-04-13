@@ -33,9 +33,9 @@ if(mysql_fetch_row(mysql_query($queryCheckForPassword)))
 {
 	print("<p>Welcome, $UserName!  You have successfully logged in!</p>"); // UserName vs. Username??????
 	
-	//$_SESSION['UserName'] = $UserName;
-	//$_SESSION['Password'] = $Password;
-	//$_SESSION['EmailAddr'] = $EmailAddr;
+	$_SESSION['UserName'] = $UserName;
+	$_SESSION['Password'] = $Password;
+	$_SESSION['EmailAddr'] = $EmailAddr;
 	
 
 //	print($_SESSION['Username']);

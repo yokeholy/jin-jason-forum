@@ -36,7 +36,8 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 	<h3 style="text-align:left; margin-top:10px">Welcome, <?php print($UserName);?>!  You can change your preferences here.</h3>
 	
 	<div class="control_panel" style="text-align:left; margin-top:10px"/>Current User Info:</div>
-	<table width="50%" align="left" class="control_panel">
+	<form name="ChangeOptions" action="ControlPanel_action.php" method="post" style="text-align:left">
+	<table width="100%" align="left" class="control_panel">
 		<tr>
 			<td>Username: &nbsp;</td>
 			<td><?php print($UserName);?></td>
@@ -55,11 +56,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 		</tr>		
 		
 	
-	<form name="ChangeOptions" action="ControlPanel_action.php" method="post" style="text-align:left">
-		<table width="100%" align="left" class="UserOptions">
 			<tr>
 				<td width="200">Threads per page: &nbsp;</td>
-				<td><select name="ThreadsPerPage" 
+				<td><select name="ThreadsPerPage" >
 						<option selected = "selected">10</option>
 						<option>25</option>
 						<option>50</option>
@@ -90,7 +89,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 			</tr>
 			<tr>
 				<td>Want to receive email updates? &nbsp;</td>
-				<td><label>Check here <input name="EmailUpdates" type="checkbox" value="Yes" </label></td>
+				<td><label>Check here <input name="EmailUpdates" type="checkbox" value="Yes"  /></label></td>
 			</tr>
 
 			<tr>
