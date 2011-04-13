@@ -12,7 +12,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 		$UserName = $_SESSION['UserName'];
 		$Password = $_SESSION['Password'];
 		$EmailAddr = $_SESSION['EmailAddr'];
-		
+		$OrigSignup = $_SESSION['OrigSignup'];
 		
 		
 		$LastLogin = $_SESSION['LastLogin'];
