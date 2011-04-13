@@ -33,7 +33,7 @@ if(isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'] == 1)
 {
 ?>
 					<h3 class="navigation_bar">Welcome back, <?php echo $_SESSION['UserName'] ?>!</H3>
-					<h4 class="navigation_bar"><a href="/" class="navigation_bar">Home</a> | <a href="/forum.php" class="navigation_bar">Forum</a> | <a href="/control_panel.php" class="navigation_bar">User Control Panel</a> | <a href="/help.php" class="navigation_bar">Help</a> | <a href="/about.php" class="navigation_bar">About Us</a></h4>
+					<h4 class="navigation_bar"><a href="/" class="navigation_bar">Home</a> | <a href="/forum.php" class="navigation_bar">Forum</a> | <a href="/control_panel.php" class="navigation_bar">User Control Panel</a> | <a href="/help.php" class="navigation_bar">Help</a> | <a href="/about.php" class="navigation_bar">About Us</a> | <a href="/functions/logout_action.php" class="navigation_bar">Logout</a></h4>
 <?php 
 } else
 {
