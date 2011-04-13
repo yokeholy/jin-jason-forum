@@ -58,7 +58,7 @@ else
 }
 
 // this line can be taken out eventually
-echo ('<p>Your username input is: '.$_POST['UserName'].'<br />And your password input is: '.MD5($_POST['Password']).'(MD5 hashed)</p>');
+echo ('<p>Your username input is: $UserName<br />And your password input is: $passscram(MD5 hashed)</p>');
 
 
 echo $UserName;
