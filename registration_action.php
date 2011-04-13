@@ -3,7 +3,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 ?>
 
 <?php
-	extract($_POST);		
+	extract($_POST);
+
+	// at this point the user is not logged in
+	$_SESSION['LoggedIn'] = 0;
 
 	$username_search_pattern = "/^[_0-9a-z]{3,20}$/i";
 	if (!preg_match($username_search_pattern, $UserName))
@@ -111,7 +114,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 	}	
 
 
-	// get date and time:
+	// get date and time to use for OrigSignup:
 	$now = getdate();
 	// set up variables:
 	$year = $now['year'];
@@ -123,7 +126,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 	$OrigSignup = "$year-$month-$day  $hours:$minutes:$seconds";
 	$LastLogin = $OrigSignup;
 	
-	// add info from text fields and getDate to the database (vars come from POST input from registraion.php, except OrigSignup)
+	// add info from text fields and getDate to the database (vars come from POST input from registraion.php, except OrigSignup and LastLogin)
 	$queryAdd = "INSERT INTO users VALUES(NULL, '$UserName', MD5('$Password'), '$FirstName', '$LastName', '$EmailAddr', '$OrigSignup', '$LastLogin')";
 	
 	
@@ -141,6 +144,8 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 		$_SESSION['EmailAddr'] = $EmailAddr;
 		$_SESSION['OrigSignup'] = $OrigSignup;
 		$_SESSION['LastLogin'] = $LastLogin;
+		// set this to 1 now that the user has logged in (by way of registration)
+		$_SESSION['LoggedIn'] = 1;
 	}	
 	?>
 	
