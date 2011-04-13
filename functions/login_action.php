@@ -1,5 +1,5 @@
 <?php 
-
+include("{$_SERVER['DOCUMENT_ROOT']}/config/database.php");
 extract($_POST);
 
 $passscram= md5($Password);
@@ -95,7 +95,7 @@ else
 //echo ('<p>Your username input is: '.$_POST['UserName'].'<br />And your password input is: '.MD5($_POST['Password']).'(MD5 hashed)</p>');
 
 
-echo $UserName;
+//echo $UserName;
 
 ?>
 
