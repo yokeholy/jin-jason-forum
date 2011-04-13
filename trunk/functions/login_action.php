@@ -12,7 +12,7 @@ $query = "SELECT EmailAddr FROM users WHERE UserName = '".$UserName."'";
 
 $row = (mysql_fetch_row(mysql_query($query)));
 $EmailAddr = $row[0];
-
+/*
 $query = "SELECT * FROM users";
 $row = (mysql_fetch_row(mysql_query($query)));
 $a = $row[0];
@@ -28,15 +28,45 @@ echo $c;
 echo $d;
 echo $e;
 echo $f;
+*/
+
+$_SESSION['LoggedIn'] = 0;
 
 if(mysql_fetch_row(mysql_query($queryCheckForPassword)))
 {
 	print("<p>Welcome, $UserName!  You have successfully logged in!</p>"); // UserName vs. Username??????
+	$_SESSION['LoggedIn'] = 1;
+	
+	// get LastLogin to use in User Control Panel
+	$query = "SELECT LastLogin FROM users WHERE UserName = '".$UserName."'";
+	$row = (mysql_fetch_row(mysql_query($query)));
+	$LastLogin = $row[0];
+	
+	// get current date and time:
+	$now = getdate();
+
+	$year = $now['year'];
+	$month = $now['mon'];
+	$day = $now['mday'];
+	$hours = $now['hours'];
+	$minutes = $now['minutes'];
+	$seconds = $now['seconds'];
+	
+	//print("<p>$year-$month-$day  $hours:$minutes:$seconds</p>");
+
+	$DateAndTime = "<p>$year-$month-$day  $hours:$minutes:$seconds</p>";
+	print("current date/time: " . $DateAndTime . "\n");	
+	print("last login: " . $LastLogin . "\n");
+
 	
 	$_SESSION['UserName'] = $UserName;
 	$_SESSION['Password'] = $Password;
 	$_SESSION['EmailAddr'] = $EmailAddr;
+	$_SESSION['DateAndTime'] = $DateAndTime;
+	$_SESSION['LastLogin'] = $LastLogin;
 	
+	$query = "UPDATE users SET LastLogin = '".$DateAndTime."' WHERE UserName = '".$UserName."'";
+	mysql_query($query);
 
 //	print($_SESSION['Username']);
 }
@@ -58,7 +88,7 @@ else
 }
 
 // this line can be taken out eventually
-echo ('<p>Your username input is: $UserName<br />And your password input is: $passscram(MD5 hashed)</p>');
+//echo ('<p>Your username input is: '.$_POST['UserName'].'<br />And your password input is: '.MD5($_POST['Password']).'(MD5 hashed)</p>');
 
 
 echo $UserName;
