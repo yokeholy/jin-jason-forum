@@ -4,37 +4,39 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 ?>
 
 <?php
-	extract($_POST);
+	
 	
 	if(isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'] == 1)
 	{
-			
-	
-	
-	
-	$UserName = $_SESSION['UserName'];
-	$Password = $_SESSION['Password'];
-	$EmailAddr = $_SESSION['EmailAddr'];
-	echo $UserName;
-	echo $Password;
-	echo $EmailAddr;
-//	$getEmailAddr = "SELECT EmailAddr FROM users WHERE UserName = '".$UserName."'";
-//	$EmailAddr = mysql_fetch_row(mysql_query($getEmailAddr));
+				
+		$UserName = $_SESSION['UserName'];
+		$Password = $_SESSION['Password'];
+		$EmailAddr = $_SESSION['EmailAddr'];
+		
+		
+		
+		$LastLogin = $_SESSION['LastLogin'];
+		//echo $UserName;
+		//echo $Password;
+		//echo $EmailAddr;
+		
+	//	$getEmailAddr = "SELECT EmailAddr FROM users WHERE UserName = '".$UserName."'";
+	//	$EmailAddr = mysql_fetch_row(mysql_query($getEmailAddr));
 
-// get date and time:
-	$now = getdate();
+	// get date and time:
+		$now = getdate();
 
-	$year = $now['year'];
-	$month = $now['mon'];
-	$day = $now['mday'];
-	$hours = $now['hours'];
-	$minutes = $now['minutes'];
-	$seconds = $now['seconds'];
-	
-	//print("<p>$year-$month-$day  $hours:$minutes:$seconds</p>");
+		$year = $now['year'];
+		$month = $now['mon'];
+		$day = $now['mday'];
+		$hours = $now['hours'];
+		$minutes = $now['minutes'];
+		$seconds = $now['seconds'];
+		
+		//print("<p>$year-$month-$day  $hours:$minutes:$seconds</p>");
 
-	$dateAndTime = "<p>$year-$month-$day  $hours:$minutes:$seconds</p>";
-	print("Last login: " . $dateAndTime);
+		$dateAndTime = "<p>$year-$month-$day  $hours:$minutes:$seconds</p>";
+		print("Last login: " . $LastLogin);
 	
 ?>
 
@@ -54,12 +56,12 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 			<td><?php print($EmailAddr);?></td>
 		</tr>
 		<tr>
-			<td>Registration Date: &nbsp;</td>
-			<td><?php print($dateAndTime);?></td>
+			<td>Registration Date/Time: &nbsp;</td>
+			<td><?php print($OrigSignup);?></td>
 		</tr>
 		<tr>
 			<td>Last Login: &nbsp;</td>
-			<td>How do I put $RegDate here?</td>
+			<td><?php print($LastLogin);?></td>
 		</tr>
 		<tr>
 			<td>Total Posts: &nbsp;</td>
