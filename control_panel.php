@@ -106,10 +106,6 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 				<td><u>Change Password?</u></td>
 			</tr>
 			<tr>
-				<td>Old Password: &nbsp;</td>
-				<td><input name="OldPassword" type="password" size="20" maxlength="20" /> <span class="instructions"></span></td>
-			</tr>
-			<tr>
 				<td>Confirm Old Password: &nbsp;</td>
 				<td><input name="ConfirmOldPassword" type="password" size="20" maxlength="20" /> <span class="instructions"></span></td>
 			</tr>
