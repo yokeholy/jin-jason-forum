@@ -4,38 +4,114 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 
 <?php
 	extract($_POST);
-
-	// at this point the user is not logged in
-	$_SESSION['LoggedIn'] = 0;
-
-	$username_search_pattern = "/^[_0-9a-z]{3,20}$/i";
-	if (!preg_match($username_search_pattern, $UserName))
+	$Password = $_SESSION['Password'];
+	$EmailAddr = $_SESSION['EmailAddr'];
+	
+	$email_search_pattern = "/^[_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,6}$/i";
+	$change_password_search_pattern = "/^[_0-9a-z-]{6,20}$/i";
+	
+	// if all fields are blank: do nothing
+	if($OldPassword == "" && $ConfirmOldPassword == "" && $NewPassword == "" && $ConfirmNewPassword == "" && $NewEmailAddr == "" && $ConfirmNewEmailAddr == "")
 	{
 		print("<p><span class = 'error'>
-			Invalid Username format.</span><br /><br />
-			A valid Userame must:<br />
-			- Contain at least 3 characters and not exceed 20 characters<br />
-			- Not contain spaces<br />
-			- Only contain alphabetic characters, digits, or underscores<br /><br />
-			Click the Back button, enter a valid Username, then resubmit.<br /><br />
-			Thank You.</span></p>");
-		die(include("footer.php")); // terminate script execution
+		No changes requested.</span><br /><br />
+		- Click the Back button to return to User Control Panel<br /><br />
+		- Or feel free to go to other areas of the Forum!");
+		die(include("{$_SERVER['DOCUMENT_ROOT']}/footer.php")); // terminate script execution
 	}
-	else
+	
+	// if other fields have entries and old password and confirm password are blank
+	else if(($OldPassword == "" && $ConfirmOldPassword == "") && ($NewPassword != "" || $ConfirmNewPassword != "" || $NewEmailAddr != "" || $ConfirmNewEmailAddr != ""))
 	{
-		$queryCheckDuplicateUsername = "SELECT UserName FROM users WHERE UserName = '".$UserName."'";
-		if(mysql_fetch_row(mysql_query($queryCheckDuplicateUsername)))
+		print("<p><span class = 'error'>
+		Current password must be confirmed to make changes.</span><br /><br />
+		- Click the Back button to return to User Control Panel<br /><br />
+		- Be sure Old Password and Confirm Old Password match your current password<br />
+		before making changes");
+		die(include("{$_SERVER['DOCUMENT_ROOT']}/footer.php")); // terminate script execution
+	}
+		
+	// check if current password matches old password fields
+	else if(($OldPassword != "" || $ConfirmOldPassword != "") && ($Password != $OldPassword || $Password != $ConfirmOldPassword || $OldPassword != $ConfirmOldPassword))
+	{
+		print("<p><span class = 'error'>
+		Current Password mismatch.</span><br /><br />
+		- Click the Back button<br />
+		- Make sure your current password matches exactly<br />
+		with the Old Password and Confirm Old Password fields<br />
+		- Then resubmit.<br /><br />
+		Thank You.</span></p>");
+		die(include("{$_SERVER['DOCUMENT_ROOT']}/footer.php")); // terminate script execution
+	}
+	
+	// check if new password matches confirm new password
+	else if(($OldPassword != "" || $ConfirmOldPassword != "") && (($NewPassword != "" || $ConfirmNewPassword != "") && $NewPassword != $ConfirmNewPassword))
+	{
+		print("<p><span class = 'error'>
+		New Password mismatch.</span><br /><br />
+		- Click the Back button<br />
+		- Make sure the New Password and Confirm New Password fields match exactly<br />
+		- Then resubmit.<br /><br />
+		Thank You.</span></p>");
+		die(include("{$_SERVER['DOCUMENT_ROOT']}/footer.php")); // terminate script execution
+	}
+	// check if new password and confirm new password conform to correct password format
+	else if(($OldPassword != "" || $ConfirmOldPassword != "") && (($NewPassword != "" || $ConfirmNewPassword != "") && $NewPassword == $ConfirmNewPassword))
+	{
+		if(!preg_match($change_password_search_pattern, $NewPassword) || !preg_match($change_password_search_pattern, $ConfirmNewPassword))
 		{
 			print("<p><span class = 'error'>
-			Username already exists.</span><br /><br />
-			Click the Back button, try a different Username, then resubmit.<br /><br />
-			Thank You.</span></p>");
-			die(include("footer.php")); // terminate script execution			
+				Invalid New Password format.</span><br /><br />
+				A valid Password must:<br />
+				- Contain at least 6 characters and not exceed 20 characters<br />
+				- Not contain spaces<br />
+				- Only contain alphabetic characters, digits, underscores, or hyphens<br /><br />
+				Click the Back button, enter a valid New Password, then resubmit.<br /><br />
+				Thank You.</span></p>");
+			die(include("footer.php")); // terminate script execution
 		}
+		else
+		{
+			print("Password will be changed");
+		}
+	}	
+	
+	// check if new email matches confirm new email
+	if($NewEmailAddr != $ConfirmNewEmailAddr)
+	{
+		print("<p><span class = 'error'>
+		Email Address mismatch.</span><br /><br />
+		- Click the Back button<br />
+		- Make sure the New Email Address and Confirm New Email Address fields match exactly<br />
+		AND are in the correct Email format<br />
+		- Then resubmit.<br /><br />		Thank You.</span></p>");
+		die(include("{$_SERVER['DOCUMENT_ROOT']}/footer.php")); // terminate script execution			
 	}
-				
-	$password_search_pattern = "/^[_0-9a-z-]{6,20}$/i";
-	if (!preg_match($password_search_pattern, $Password))
+	// check if new email and confirm new email conform to correct email format
+	else if(!preg_match($email_search_pattern, $NewEmailAddr) || !preg_match($email_search_pattern, $ConfirmNewEmailAddr))
+	{
+		print("<p><span class = 'error'>
+			Invalid email format</span><br /><br />
+			A valid email address must:<br />
+			- Be in the form <strong>yourname@domain.com</strong><br />
+			- Contain only alphanumeric characters, digits, underscores, dots, or hyphens<br /><br />
+			<span class = 'distinct'>  
+			Click the Back button, enter a valid Email Address, then resubmit.<br /><br />
+			Thank You.</span></p>");
+		die(include("{$_SERVER['DOCUMENT_ROOT']}/footer.php")); // terminate script execution
+	}
+	
+
+	
+	if($NewEmailAddr != "")
+	{
+		print("email will be changed");
+	}
+	
+	
+/*	
+	$change_password_search_pattern = "/^[_0-9a-z-]{6,20}$/i";
+	if (!preg_match($change_password_search_pattern, $ChangePassword))
 	{
 		print("<p><span class = 'error'>
 			Invalid Password format.</span><br /><br />
@@ -146,7 +222,8 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 		$_SESSION['LastLogin'] = $LastLogin;
 		// set this to 1 now that the user has logged in (by way of registration)
 		$_SESSION['LoggedIn'] = 1;
-	}	
+	}
+*/	
 	?>
 	
 <?php
