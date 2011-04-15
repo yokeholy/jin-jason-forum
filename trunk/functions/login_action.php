@@ -32,12 +32,16 @@ echo $f;
 $_SESSION['LoggedIn'] = 0;
 
 if(mysql_fetch_row(mysql_query($queryCheckForPassword)))
-{
-	
-	
+{	
 	// put variables from POST into SESSION (typed in when logging in)
 	$_SESSION['UserName'] = $UserName;
 	$_SESSION['Password'] = $Password;
+
+	// get UserID to use later if needed
+	$queryGetUserID = "SELECT UserID FROM users WHERE UserName = '".$UserName."'";
+	$row = (mysql_fetch_row(mysql_query($queryGetUserID)));
+	$UserID = $row[0];
+	$_SESSION['UserID'] = $UserID;
 	
 	// get EmailAddr to use in User Control Panel
 	$queryGetEmailAddr = "SELECT EmailAddr FROM users WHERE UserName = '".$UserName."'";
