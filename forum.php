@@ -20,10 +20,11 @@ while($result = mysql_fetch_array($query))
 	$queryUser = mysql_query("SELECT * FROM users WHERE UserID = '".$result['UserID']."'");
 	$resultUser = mysql_fetch_array($queryUser);
 	$PostID = $result['PostID'];
-	$queryReply = mysql_query("SELECT * FROM posts WHERE ThreadID = '$PostID' AND PostID != '$PostID' ORDER BY 'PostID' ASC LIMIT 0, 1");
+	$queryReply = mysql_query("SELECT * FROM posts WHERE ThreadID = '$PostID' AND PostID != '$PostID' ORDER BY PostID DESC");
 	$resultReply = mysql_fetch_array($queryReply);
 	if($resultReply)
 	{
+	$replyCount = mysql_fetch_array(mysql_query("SELECT COUNT(*) FROM posts WHERE ThreadID = '$PostID' AND PostID != '$PostID'"));
 	$queryReplyUser = mysql_query("SELECT * FROM users WHERE UserId = '".$resultReply['UserID']."'");
 	$resultReplyUser = mysql_fetch_array($queryReplyUser);
 ?>
@@ -31,7 +32,7 @@ while($result = mysql_fetch_array($query))
 	<tr onmouseover="style.backgroundColor='#ddd'" onmouseout="style.backgroundColor='#fff'">
 		<td class="MainForum"><p><strong><a href="/viewthread.php?tid=<?php echo $result['PostID']?>"><span class="Sticky"><?php echo $result['Subject'];?></span></a></strong></p></td>
 		<td class="MainForum" align="center"><p>by <strong><?php echo $resultUser['UserName'];?></strong> <br />at <?php echo $result['PostDate']." ".$result['PostTime'];?></p></td>
-		<td class="MainForum" align="center"><p>some</p></td>
+		<td class="MainForum" align="center"><p><?php echo $replyCount[0];?></p></td>
 		<td class="MainForum" align="center"><p>by <strong><?php echo $resultReplyUser['UserName'];?></strong> <br />at <?php echo $resultReply['PostDate']." ".$resultReply['PostTime'];?></p></td>
 	</tr>
 	
@@ -60,10 +61,11 @@ while($result = mysql_fetch_array($query))
 	$queryUser = mysql_query("SELECT * FROM users WHERE UserID = '".$result['UserID']."'");
 	$resultUser = mysql_fetch_array($queryUser);
 	$PostID = $result['PostID'];
-	$queryReply = mysql_query("SELECT * FROM posts WHERE ThreadID = '$PostID' AND PostID != '$PostID' ORDER BY 'PostID' DESC LIMIT 0, 1");
+	$queryReply = mysql_query("SELECT * FROM posts WHERE ThreadID = '$PostID' AND PostID != '$PostID' ORDER BY PostID DESC");
 	$resultReply = mysql_fetch_array($queryReply);
 	if($resultReply)
 	{
+	$replyCount = mysql_fetch_array(mysql_query("SELECT COUNT(*) FROM posts WHERE ThreadID = '$PostID' AND PostID != '$PostID'"));
 	$queryReplyUser = mysql_query("SELECT * FROM users WHERE UserId = '".$resultReply['UserID']."'");
 	$resultReplyUser = mysql_fetch_array($queryReplyUser);
 ?>
@@ -71,7 +73,7 @@ while($result = mysql_fetch_array($query))
 	<tr onmouseover="style.backgroundColor='#ddd'" onmouseout="style.backgroundColor='#fff'">
 		<td class="MainForum"><p><strong><a href="/viewthread.php?tid=<?php echo $result['PostID']?>"><?php echo $result['Subject'];?></a></strong></p></td>
 		<td class="MainForum" align="center"><p>by <strong><?php echo $resultUser['UserName'];?></strong> <br />at <?php echo $result['PostDate']." ".$result['PostTime'];?></p></td>
-		<td class="MainForum" align="center"><p>some</p></td>
+		<td class="MainForum" align="center"><p><?php echo $replyCount[0];?></p></td>
 		<td class="MainForum" align="center"><p>by <strong><?php echo $resultReplyUser['UserName'];?></strong> <br />at <?php echo $resultReply['PostDate']." ".$resultReply['PostTime'];?></p></td>
 	</tr>
 	
