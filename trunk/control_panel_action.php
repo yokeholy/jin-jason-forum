@@ -10,8 +10,35 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 	$email_search_pattern = "/^[_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,6}$/i";
 	$change_password_search_pattern = "/^[_0-9a-z-]{6,20}$/i";
 	
+	// set up some flags to make upcoming if statements easier
+	if($ConfirmOldPassword == "")
+		$ConfirmOldPasswordIsBlank = 1;
+	else
+		$ConfirmOldPasswordIsBlank = 0;
+		
+	if($NewPassword == "")
+		$NewPasswordIsBlank = 1;
+	else
+		$NewPasswordIsBlank = 0;
+		
+	if($ConfirmNewPassword == "")
+		$ConfirmNewPasswordIsBlank = 1;
+	else
+		$ConfirmNewPasswordIsBlank = 0;
+	
+	if($NewEmailAddr == "")
+		$NewEmailAddrIsBlank = 1;
+	else
+		$NewEmailAddrIsBlank = 0;
+		
+	if($ConfirmNewEmailAddr == "")
+		$ConfirmNewEmailAddrIsBlank = 1;
+	else
+		$ConfirmNewEmailAddrIsBlank = 0;
+	
+	
 	// if all fields are blank: do nothing
-	if($OldPassword == "" && $ConfirmOldPassword == "" && $NewPassword == "" && $ConfirmNewPassword == "" && $NewEmailAddr == "" && $ConfirmNewEmailAddr == "")
+	if($ConfirmOldPasswordIsBlank && $NewPasswordIsBlank && $ConfirmNewPasswordIsBlank && $NewEmailAddrIsBlank && $ConfirmNewEmailAddrIsBlank)
 	{
 		print("<p><span class = 'error'>
 		No changes requested.</span><br /><br />
@@ -20,32 +47,44 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 		die(include("{$_SERVER['DOCUMENT_ROOT']}/footer.php")); // terminate script execution
 	}
 	
-	// if other fields have entries and old password and confirm password are blank
-	else if(($OldPassword == "" && $ConfirmOldPassword == "") && ($NewPassword != "" || $ConfirmNewPassword != "" || $NewEmailAddr != "" || $ConfirmNewEmailAddr != ""))
+	// if confirm old password is blank and other fields have entries
+	else if($ConfirmOldPasswordIsBlank && (!$NewPasswordIsBlank || !$ConfirmNewPasswordIsBlank || !$NewEmailAddrIsBlank || !$ConfirmNewEmailAddrIsBlank))
 	{
 		print("<p><span class = 'error'>
 		Current password must be confirmed to make changes.</span><br /><br />
 		- Click the Back button to return to User Control Panel<br /><br />
-		- Be sure Old Password and Confirm Old Password match your current password<br />
+		- Be sure Confirm Old Password matches your current password<br />
 		before making changes");
 		die(include("{$_SERVER['DOCUMENT_ROOT']}/footer.php")); // terminate script execution
 	}
 		
-	// check if current password matches old password fields
-	else if(($OldPassword != "" || $ConfirmOldPassword != "") && ($Password != $OldPassword || $Password != $ConfirmOldPassword || $OldPassword != $ConfirmOldPassword))
+	// if confirm old password (is not blank and) does not match current password
+	else if(!$ConfirmOldPasswordIsBlank && $Password != $ConfirmOldPassword)
 	{
 		print("<p><span class = 'error'>
 		Current Password mismatch.</span><br /><br />
 		- Click the Back button<br />
-		- Make sure your current password matches exactly<br />
-		with the Old Password and Confirm Old Password fields<br />
+		- Make sure the Confirm Old Password field matches your current password exactly<br />
 		- Then resubmit.<br /><br />
 		Thank You.</span></p>");
 		die(include("{$_SERVER['DOCUMENT_ROOT']}/footer.php")); // terminate script execution
 	}
 	
-	// check if new password matches confirm new password
-	else if(($OldPassword != "" || $ConfirmOldPassword != "") && (($NewPassword != "" || $ConfirmNewPassword != "") && $NewPassword != $ConfirmNewPassword))
+	// if confirm old password is not blank and matches current password, and all other fields are blank
+	else if(!$ConfirmOldPasswordIsBlank && $NewPasswordIsBlank && $ConfirmNewPasswordIsBlank && $NewEmailAddrIsBlank && $ConfirmNewEmailAddrIsBlank)
+	{
+		print("<p><span class = 'error'>
+		Current password confirmed but no changes requested.</span><br /><br />
+		- Click the Back button to return to User Control Panel<br /><br />
+		- Or feel free to go to other areas of the Forum!");
+		die(include("{$_SERVER['DOCUMENT_ROOT']}/footer.php")); // terminate script execution
+	}
+		
+		
+		
+		
+		
+	else if(!$ConfirmOldPasswordIsBlank && (($NewPassword != "" || $ConfirmNewPassword != "") && $NewPassword != $ConfirmNewPassword))
 	{
 		print("<p><span class = 'error'>
 		New Password mismatch.</span><br /><br />
