@@ -111,25 +111,6 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 			<tr>
 				<td width="220"><a href="/update_email_addr.php" class="update_email_addr">Update Email Address? (click here)</a></td>
 			</tr>
-			<tr>
-				<td>New Email Address: &nbsp;</td>
-				<td><input name="NewEmailAddr" type="text" size="40" maxlength="40" /> <span class="instructions"> (Ex. yourname@domain.com) (Maximum 40 characters)</span></td>
-			</tr>
-			<tr>
-				<td>Confirm New Email Address: &nbsp;</td>
-				<td><input name="ConfirmNewEmailAddr" type="text" size="40" maxlength="40" /> <span class="instructions"> (Ex. yourname@domain.com) (Maximum 40 characters)</span></td>
-			</tr>
-			<tr>
-				<td>Want to receive email updates? &nbsp;</td>
-				<td><label>Check here <input name="EmailUpdates" type="checkbox" value="Yes"  /></label></td>
-			</tr>
-
-			<tr>
-				<td colspan="2">
-					<input type="submit" value="Submit" />
-					<input type="reset" value="Reset" />
-				</td>
-			</tr>			
 		</table>
 		</form>
 
