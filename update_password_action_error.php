@@ -1,5 +1,5 @@
 <?php
-$error = $_SESSION['error'];
+$PasswordError = $_SESSION['PasswordError'];
 ?>
 
 		<h1 style="text-align:left; margin-top:10px"><strong>Change Password</strong></h1>
@@ -20,21 +20,21 @@ $error = $_SESSION['error'];
 		</table>
 		
 <?php
-			if($error == 1)
+			if($PasswordError == 1)
 				print("<span class=\"error\">No data entered.</span>");
-			else if($error == 2)
+			else if($PasswordError == 2)
 				print("<span class=\"error\"><strong>Error:</strong><br/>Current password must be confirmed to make changes.  Please try again.</span>");
-			else if($error == 3)
+			else if($PasswordError == 3)
 				print("<span class=\"error\"><strong>Error:</strong><br/>Current password mismatch.  Please try again.</span>");
-			else if($error == 4)
+			else if($PasswordError == 4)
 				print("<span class=\"error\">Current Password confirmed but no changes requested.</span>");
-			else if($error == 5)
+			else if($PasswordError == 5)
 				print("<span class=\"error\"><strong>Error:</strong><br/>New password mismatch. Please try again.</span>");
-			else if($error == 6)
+			else if($PasswordError == 6)
 				print("<span class=\"error\"><strong>Error:</strong><br/>Invalid password format.<br/>
 						A valid password must:<br/><i>&nbsp;&nbsp;&nbsp;&nbsp;- Contain at least 6 characters and not exceed 20 characters<br/>&nbsp;&nbsp;&nbsp;
 						- Not contain spaces<br/>&nbsp;&nbsp;&nbsp;&nbsp;- Only contain alphabetic characters, digits, underscores, or hyphens</i><br/>Please try again.</span>");
-			else if($error == 0)
+			else if($PasswordError == 0)
 				print("<span class=\"error\">Password has been successfully changed! NOT REALLY, the DATABASE UPDATE IS CURRENTLY COMMENTED OUT</span>");
 ?>
 		<table>
