@@ -58,7 +58,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 		<h3 style="text-align:left; margin-top:10px">Welcome, <?php print($UserName);?>!  You can change view and change your info here.</h3>
 		
 		<div class="control_panel" style="text-align:left; margin-top:10px"/>Current User Info:</div>
-		<form name="ChangeOptions" action="control_panel_action.php" method="post" style="text-align:left">
+		<form name="ChangeOptions" style="text-align:left">
 		<table width="100%" align="left" class="control_panel">
 			<tr>
 				<td>Username: &nbsp;</td>
@@ -109,7 +109,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 				<td><br/></td>
 			</tr>
 			<tr>
-				<td width="220"><a href="/update_email_addr.php" class="update_email_addr">Update Email Address? (click here)</a></td>
+				<td width="220"><a href="/update_email_addr.php" class="change_password">Update Email Address? (click here)</a></td>
 			</tr>
 		</table>
 		</form>
