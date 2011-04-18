@@ -22,7 +22,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 			</tr>
 			<tr>
 				<td width="200">Want to receive email updates? &nbsp;</td>
-				<td><label>Check here <input name="EmailUpdates" type="checkbox" value="Yes"  /></label></td>
+				<td><label>Check here <input name="EmailCheckbox" type="checkbox" value="Yes"  /></label></td>
 			</tr>
 
 			<tr>
