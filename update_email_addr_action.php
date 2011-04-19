@@ -32,11 +32,8 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 	if(isset($_POST['EmailCheckbox']))
 		$EmailCheck = 1;
 
-		
 	
-	
-	
-	// if all fields are blank: do nothing
+	// if all fields are blank
 	if($ConfirmOldPasswordIsBlank && $NewEmailAddrIsBlank && $ConfirmNewEmailAddrIsBlank && !$EmailCheck)
 	{
 		$EmailAddrError = 1;

@@ -90,6 +90,11 @@ h3 {
 	color: #0000CD;
 }
 
+.congrats{
+	font-size:20px;
+	color: #006400;
+}
+
 .error    { color: red }
 .distinct { color: blue }
 

@@ -36,7 +36,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 		//print("<p>$year-$month-$day  $hours:$minutes:$seconds</p>");
 
 		$dateAndTime = "<p>$year-$month-$day  $hours:$minutes:$seconds</p>";
-		print("Last login: " . $LastLogin);
+		//print("Last login: " . $LastLogin);
 		
 		// get Total Posts to display in User Control Panel
 		$queryGetTotalPosts = "SELECT COUNT(*) FROM posts WHERE UserID = '".$UserID."'";
