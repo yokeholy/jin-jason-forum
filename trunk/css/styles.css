@@ -1,5 +1,6 @@
 
-body {
+body
+{
 	background-image: url(/images/background.png);
 	margin: 0px;
 	top:0px;
@@ -8,33 +9,39 @@ body {
 img {border: none}
 
 
-a {
+a
+{
 	text-decoration: none;
 	color: #3C0;
 }
 
 a:hover { color:#39F }
-p {
+
+p
+{
 	color: #666;
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 10px;
 	margin:0px;
 }
 
-h1 {
+h1
+{
 	font-family: Arial, Helvetica, sans-serif;
 	color: #63F;
 	filter: Shadow(Color=#000000, Direction=1);	
 }
 
-h2 {
+h2
+{
 	font-family: Arial, Helvetica, sans-serif;
 	color: #74F;
 	filter: Shadow(Color=#000000, Direction=1);
 	margin:0px;
 }
 
-h3 {
+h3
+{
 	font-family: Arial, Helvetica, sans-serif;
 	color: #85F;
 	filter: Shadow(Color=#000000, Direction=1);	
@@ -56,41 +63,54 @@ h3 {
 	margin: 0px;
 }
 
-.MainForum {
+.MainForum
+{
 	border: 1px solid #69F;
 	border-collapse:collapse;
 	height:30px;
 }
 
-.TableTitle {
+.TableTitle
+{
 	font-size:12px;
 	color:#009;
 	font-weight:bold;
 	height:10px;
 }
 
-.instructions{
+.instructions
+{
 	font-size:13px;
 	color:#808080;
 	font-style:italic;
 }
 
-.instructions2{
+.instructions2
+{
 	font-size:13px;
 	color:#000000;
 }
 
-.control_panel{
+.control_panel
+{
 	font-size:16px;
 	color:#000000;
 }
 
-.change_password{
+.change_password
+{
 	font-size:16px;
 	color: #0000CD;
 }
 
-.congrats{
+.congrats
+{
+	font-size:20px;
+	color: #006400;
+}
+
+.about
+{
 	font-size:20px;
 	color: #006400;
 }
