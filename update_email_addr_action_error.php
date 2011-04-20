@@ -24,7 +24,9 @@ $EmailCheck = $_SESSION['EmailCheck'];
 				<td width="200">Want to receive email updates? &nbsp;</td>
 				<td><label>Check here <input name="EmailCheckbox" type="checkbox" value="Yes"  /></label></td>
 			</tr>
-		</table>
+			
+			<tr>
+				<td colspan="2">
 
 <?php
 			if($EmailAddrError == 1)
@@ -52,7 +54,8 @@ $EmailCheck = $_SESSION['EmailCheck'];
 			}
 ?>
 
-		<table>
+				</td>
+			</tr>
 			<tr>
 				<td colspan="2">
 					<input type="submit" value="Submit" />

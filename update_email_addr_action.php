@@ -1,5 +1,13 @@
 <?php 
 include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
+
+if(!isset($_POST['ConfirmOldPassword']))
+{
+	print("<span class=\"error\">Invalid request.  Please return to another area of the forum.</span>");
+	
+}
+else
+{
 ?>
 
 <?php
@@ -176,7 +184,8 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 		}
 	}
 ?>
-	
+
 <?php
+} // end else from top of file if statement
 include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
 ?>
