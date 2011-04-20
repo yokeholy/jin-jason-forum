@@ -1,5 +1,15 @@
 <?php 
 include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
+if(!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != 1)
+{
+	echo('<p class = "error">Please login before posting a new thread or reply.</p>');
+}
+else if(!isset($_POST['Submit']) || $_POST['Submit'] != "Post!")
+{
+	echo('<p class = "error">Invalid request! Please add a post through the right form.</p>');
+}
+else
+{
 extract($_POST);
 extract($_SESSION);
 $Date = date('Y-m-d');
@@ -32,5 +42,6 @@ else // original post process
 
 
 <?php
+}
 include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
 ?>

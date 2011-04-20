@@ -4,9 +4,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 
 <h1>Help</h1>
 
-<p class = "about" style="text-align:left; margin-top:10px"><strong>Q & A:</strong></p><br/><br/>
+<p class = "help" style="text-align:left; margin-top:10px"><strong>Q & A:</strong></p><br/><br/>
 
-<p class = "about" style="text-align:left; margin-top:10px"><strong>Q:</strong> Can I view forum posts without being a registered user?<br/>
+<p class = "help" style="text-align:left; margin-top:10px"><strong>Q:</strong> Can I view forum posts without being a registered user?<br/>
 <strong>A:</strong> Of course!  Feel free to view and read as many posts as you would like.</p><br/>
 
 <p class = "about" style="text-align:left; margin-top:10px"><strong>Q:</strong> Can I reply to a post without being a registered user?<br/>
