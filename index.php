@@ -6,3 +6,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 <h2>created by Jin Wang and Jason Campbell</h2>
 <p>All functions are working now.</p>
 <p>We're in debugging phase.</p>
+
+<?php
+include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
+?>
