@@ -1,5 +1,11 @@
 ﻿<?php 
 include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
+if(isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'] == 1)
+{
+	echo('<p class="error">Sorry, but you are already logged in and we cannot let you register for another account.</p>');
+}
+else
+{
 ?>
 
 	<h1 style="text-align:left; margin-top:10px"><strong>First Time User Registration</strong></h1>
@@ -42,5 +48,6 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 
 
 <?php
+}
 include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
 ?>
