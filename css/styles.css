@@ -109,11 +109,18 @@ h3
 	color: #006400;
 }
 
+.help
+{
+	font-size:20px;
+	color: #000000;
+}
+
 .about
 {
 	font-size:20px;
 	color: #006400;
 }
+
 
 .error    { color: red }
 .distinct { color: blue }
