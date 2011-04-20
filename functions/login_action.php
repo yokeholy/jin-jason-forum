@@ -2,6 +2,13 @@
 include("{$_SERVER['DOCUMENT_ROOT']}/config/database.php");
 session_start();
 $_SESSION['SessionStarted'] = 1;
+if(isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'] == 1)
+{
+	include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
+	echo('<p class="error">Sorry, but you are already logged in. Please logout before trying to login with another account.</p>');
+}
+else
+{
 extract($_POST);
 
 $passscram= md5($Password);
@@ -108,26 +115,7 @@ else
 
 //echo $UserName;
 
-?>
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php 
 include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
 ?>

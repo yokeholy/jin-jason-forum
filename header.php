@@ -22,7 +22,7 @@ if(!isset($_SESSION['SessionStarted']))
 				<td width="234"><a href="/"><img src="/images/logo.png" width="234" height="120" /></a></td>
 				<td width="766" align="center">
 					<h1>Welcome to J2 Forum!</H1>
-					<h2>This is header part</H2>
+					<h3>All times on this forum are posted in GMT.</h3>
 				</td>
 			<tr>
 
