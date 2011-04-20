@@ -1,6 +1,6 @@
 <?php
 $EmailAddrError = $_SESSION['EmailAddrError'];
-$EmailCheck = $_SESSION['EmailCheckbox'];
+$EmailCheck = $_SESSION['EmailCheck'];
 ?>
 
 		<h1 style="text-align:left; margin-top:10px"><strong>Change Email Address</strong></h1>
