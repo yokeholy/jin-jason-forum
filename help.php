@@ -35,6 +35,9 @@ then click the "Post the Reply!" button when you are finished entering your repl
 You will see the words "Add a Thread" at the top and bottom of the list of threads.  This will take you to the New Thread page 
 where you can enter the Subject and Content, then click the "Post the New Thread!" button when you are finished entering the new thread info.</p><br/>
 
+<p class = "help" style="text-align:left; margin-top:10px"><strong>Q:</strong> What time zone listing is used for timestamps on this forum?<br/>
+<strong>A:</strong> All times are posted in GMT (Greenwich Mean Time) which marks the starting point of every time zone in the world.
+Do an internet search to compare your time zone to GMT if you like.</p><br/>
 
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
