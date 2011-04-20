@@ -26,7 +26,7 @@ if(isset($NewType) && $NewType == 1) // If the new post is a reply to an existin
 			<td class="AddPost"><textarea name="Content" cols="100" rows="20"></textarea></td>
 		</tr>
 		<tr align="center">
-			<td colspan="2" class="AddPost"><input name="Submit" type="submit" value="Post!" /><input type="reset" value="No, clean them for me"></td>
+			<td colspan="2" class="AddPost"><input name="Submit" type="submit" value="Post!" /><input type="reset" value="Clear All Entries"></td>
 		</tr>
 	</table>
 </form>
@@ -48,7 +48,7 @@ else
 			<td class="AddPost"><textarea name="Content" cols="100" rows="20"></textarea></td>
 		</tr>
 		<tr align="center">
-			<td colspan="2" class="AddPost"><input name="Submit" type="submit" value="Post!"><input type="reset" value="No, clean them for me"></td>
+			<td colspan="2" class="AddPost"><input name="Submit" type="submit" value="Post!"><input type="reset" value="Clear All Entries"></td>
 		</tr>
 	</table>
 </form>
