@@ -84,6 +84,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 				<td>Threads Started: &nbsp;</td>
 				<td><?php print($ThreadsStarted);?></td>
 			</tr>			
+<!--
 			<tr>
 				<td>Threads per page: &nbsp;</td>
 				<td><select name="ThreadsPerPage" >
@@ -99,6 +100,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 				<td><label>Newest First <input name="ThreadOrder" type="checkbox" value="NewestFirst"/> </label>
 					<label>Oldest First <input name="ThreadOrder" type="checkbox" value="OldestFirst"/> </label></td>
 			</tr>
+-->
 			<tr>
 				<td><br/></td>
 			</tr>
