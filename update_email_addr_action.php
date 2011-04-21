@@ -20,9 +20,7 @@ else
 	$numRows = mysql_fetch_array($result);
 	$Password = $numRows[0];
 	
-	$ConfirmOldPassword = MD5($ConfirmOldPassword);
-	
-	
+		
 	$change_email_search_pattern = "/^[_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,6}$/i";
 	
 	// set up some flags to make upcoming if statements easier
@@ -43,6 +41,8 @@ else
 		
 	$EmailAddrError = 0;
 	$EmailCheck = 0;
+	
+	$ConfirmOldPassword = MD5($ConfirmOldPassword);
 	
 	if(isset($_POST['EmailCheckbox']))
 		$EmailCheck = 1;
