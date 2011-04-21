@@ -90,16 +90,6 @@ else
 	{
 		$RegistrationError = 3;
 		$_SESSION['RegistrationError'] = $RegistrationError;
-		/*
-		print("<p><span class = 'error'>
-			Invalid Username format.</span><br /><br />
-			A valid Userame must:<br />
-			- Contain at least 3 characters and not exceed 20 characters<br />
-			- Not contain spaces<br />
-			- Only contain alphabetic characters, digits, or underscores<br /><br />
-			Click the Back button, enter a valid Username, then resubmit.<br /><br />
-			Thank You.</span></p>");
-		*/
 		die(include("{$_SERVER['DOCUMENT_ROOT']}/registration_action_error.php")); // terminate script execution
 	}
 	// if UserName format is correct but is a duplicate of an existing UserName
@@ -110,12 +100,6 @@ else
 		{
 			$RegistrationError = 4;
 			$_SESSION['RegistrationError'] = $RegistrationError;
-			/*
-			print("<p><span class = 'error'>
-			Username already exists.</span><br /><br />
-			Click the Back button, try a different Username, then resubmit.<br /><br />
-			Thank You.</span></p>");
-			*/
 			die(include("{$_SERVER['DOCUMENT_ROOT']}/registration_action_error.php")); // terminate script execution			
 		}
 	}
@@ -125,30 +109,13 @@ else
 	{
 		$RegistrationError = 5;
 		$_SESSION['RegistrationError'] = $RegistrationError;
-		/*
-		print("<p><span class = 'error'>
-			Invalid Password format.</span><br /><br />
-			A valid Password must:<br />
-			- Contain at least 6 characters and not exceed 20 characters<br />
-			- Not contain spaces<br />
-			- Only contain alphabetic characters, digits, underscores, or hyphens<br /><br />
-			Click the Back button, enter a valid Password, then resubmit.<br /><br />
-			Thank You.</span></p>");
-		*/
 		die(include("{$_SERVER['DOCUMENT_ROOT']}/registration_action_error.php")); // terminate script execution
 	}
-	
 	// if Password format is correct but does not match Confirm Password
 	else if($Password != $ConfirmPassword)
 	{
 		$RegistrationError = 6;
 		$_SESSION['RegistrationError'] = $RegistrationError;
-		/*
-		print("<p><span class = 'error'>
-			Password mismatch.</span><br /><br />
-			Click the Back button, make sure the Password and Confirm Password fields match exactly, then resubmit.<br /><br />
-			Thank You.</span></p>");
-		*/
 		die(include("{$_SERVER['DOCUMENT_ROOT']}/registration_action_error.php")); // terminate script execution
 	}	
 	
@@ -157,17 +124,6 @@ else
 	{
 		$RegistrationError = 7;
 		$_SESSION['RegistrationError'] = $RegistrationError;
-		/*
-		print("<p><span class = 'error'>
-			Invalid Name format.</span><br /><br />
-			A valid First Name must:<br />
-			- Contain at least 2 characters and not exceed 20 characters<br />
-			- Not contain spaces<br />
-			- Begin with an alphabetic character<br />
-			- Only contain alphabetic characters or hyphens<br /><br />
-			Click the Back button, enter a valid First Name, then resubmit.<br /><br />
-			Thank You.</span></p>");
-		*/
 		die(include("{$_SERVER['DOCUMENT_ROOT']}/registration_action_error.php")); // terminate script execution
 	}
 
@@ -176,17 +132,6 @@ else
 	{
 		$RegistrationError = 8;
 		$_SESSION['RegistrationError'] = $RegistrationError;
-		/*
-		print("<p><span class = 'error'>
-			Invalid Name format.</span><br />
-			A valid Last Name must:<br />
-			- Contain at least 2 characters and not exceed 20 characters<br />
-			- Not contain spaces<br />
-			- Begin with an alphabetic character<br />
-			- Only contain alphabetic characters or hyphens<br /><br />
-			Click the Back button, enter a valid Last Name, then resubmit.<br /><br />
-			Thank You.</span></p>");
-		*/
 		die(include("{$_SERVER['DOCUMENT_ROOT']}/registration_action_error.php")); // terminate script execution
 	}
 
@@ -195,16 +140,6 @@ else
 	{
 		$RegistrationError = 9;
 		$_SESSION['RegistrationError'] = $RegistrationError;
-		/*
-		print("<p><span class = 'error'>
-			Invalid email format</span><br /><br />
-			A valid email address must:<br />
-			- Be in the form <strong>yourname@domain.com</strong><br />
-			- Contain only alphanumeric characters, digits, underscores, dots, or hyphens<br /><br />
-			<span class = 'distinct'>  
-			Click the Back button, enter a valid Email Address, then resubmit.<br /><br />
-			Thank You.</span></p>");
-		*/
 		die(include("{$_SERVER['DOCUMENT_ROOT']}/registration_action_error.php")); // terminate script execution
 	}
 	// if Email Address format is correct but is a duplicate of an existing Email Address
@@ -215,12 +150,6 @@ else
 		{
 			$RegistrationError = 10;
 			$_SESSION['RegistrationError'] = $RegistrationError;
-			/*
-			print("<p><span class = 'error'>
-			The email address already exists under another Username.</span><br /><br />
-			Click the Back button, try a different email address, then resubmit.<br /><br />
-			Thank You.</span></p>");
-			*/
 		die(include("{$_SERVER['DOCUMENT_ROOT']}/registration_action_error.php")); // terminate script execution
 		}
 	}	
@@ -238,18 +167,13 @@ else
 	$LastLogin = $OrigSignup;
 	$SubscribeEmail = 0;
 	
-	
 	// add info from text fields and getDate to the database (vars come from POST input from registraion.php, except OrigSignup and LastLogin)
 	$queryAdd = "INSERT INTO users VALUES(NULL, '$UserName', MD5('$Password'), '$FirstName', '$LastName', '$EmailAddr', '$OrigSignup', '$LastLogin', '$SubscribeEmail')";
-	
 	
 	if(!($result = mysql_query($queryAdd)))
 	{
 		$RegistrationError = 11;
 		$_SESSION['RegistrationError'] = $RegistrationError;
-		/*
-		print("Could not access the database!  Please try again shortly. <br />");
-		*/
 		die(mysql_error() . include("{$_SERVER['DOCUMENT_ROOT']}/registration_action_error.php")); // terminate script execution
 	}
 	else
@@ -272,7 +196,6 @@ else
 		$_SESSION['LastLogin'] = $LastLogin;
 		// set this to 1 now that the user has logged in (by way of registration)
 		$_SESSION['LoggedIn'] = 1;
-		//die(include("{$_SERVER['DOCUMENT_ROOT']}/registration_action_error.php")); // terminate script execution
 	}	
 	?>
 	

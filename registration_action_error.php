@@ -1,7 +1,6 @@
 ﻿<?php 
 $RegistrationError = $_SESSION['RegistrationError'];
 ?>
-
 	<h1 style="text-align:left; margin-top:10px"><strong>First Time User Registration</strong></h1>
 	<div class="instructions2" style="text-align:left; margin-top:10px"/>Please fill in all fields below and click Submit.
 		&nbsp;Click Reset to clear all fields.</div><br />
@@ -68,11 +67,7 @@ $RegistrationError = $_SESSION['RegistrationError'];
 			print("<span class=\"error\"><strong>Error:</strong><br/>Email Address already exists under another Username.  Please try again.</span>");
 		else if($RegistrationError == 11)	
 			print("<span class=\"error\"><strong>Error:</strong><br/>Could not access the database!  Please try again shortly.<br/>");
-//		else if($RegistrationError == 0)	
-//			print("<span class=\"error\">Congratulations, $FirstName, you have successfully registered!<br/>");			
-
 ?>
-
 		<table>
 			<tr>
 				<td colspan="2">
@@ -82,7 +77,6 @@ $RegistrationError = $_SESSION['RegistrationError'];
 			</tr>			
 		</table>
 	</form>
-
 
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");

@@ -7,7 +7,6 @@ if(isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'] == 1)
 else
 {
 ?>
-
 	<h1 style="text-align:left; margin-top:10px"><strong>First Time User Registration</strong></h1>
 	<div class="instructions2" style="text-align:left; margin-top:10px"/>Please fill in all fields below and click Submit.
 		&nbsp;Click Reset to clear all fields.</div><br />
@@ -45,7 +44,6 @@ else
 			</tr>			
 		</table>
 	</form>
-
 
 <?php
 }
