@@ -1,4 +1,6 @@
 ﻿<?php 
+include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
+
 $RegistrationError = $_SESSION['RegistrationError'];
 ?>
 	<h1 style="text-align:left; margin-top:10px"><strong>First Time User Registration</strong></h1>
@@ -6,32 +8,8 @@ $RegistrationError = $_SESSION['RegistrationError'];
 		&nbsp;Click Reset to clear all fields.</div><br />
 	<form name="Register" action="registration_action.php" method="post" style="text-align:left">
 		<table width="100%" align="left" class="registration">
-			<tr>
-				<td width="125">Username: &nbsp;</td>
-				<td><input name="UserName" type="text" size="20" maxlength="20" /> <span class="instructions"> (3 to 20 characters) </span> </td>
-			</tr>
-			<tr>
-				<td>Password: &nbsp;</td>
-				<td><input name="Password" type="password" size="20" maxlength="20" /> <span class="instructions"> (6 to 20 characters) </span>  </td>
-			</tr>
-			<tr>
-				<td>Confirm Password: &nbsp;</td>
-				<td><input name="ConfirmPassword" type="password" size="20" maxlength="20" /> <span class="instructions"> (6 to 20 characters) </span>  </td>
-			</tr>
-			<tr>
-				<td>First Name: &nbsp;</td>
-				<td><input name="FirstName" type="text" size="20" maxlength="20" /> <span class="instructions"> (2 to 20 characters) </span>  </td>
-			</tr>
-			<tr>
-				<td>Last Name: &nbsp;</td>
-				<td><input name="LastName" type="text" size="20" maxlength="20" /> <span class="instructions"> (2 to 20 characters) </span>  </td>
-			</tr>
-			<tr>
-				<td>Email Address: &nbsp;</td>
-				<td><input name="EmailAddr" type="text" size="40" maxlength="40" /> <span class="instructions"> (Ex. yourname@domain.com) (Maximum 40 characters) </span>  </td>
-			</tr>
-		</table>
-		
+		<tr>
+		<td colspan="2">
 <?php
 		if($RegistrationError == 1)
 			print("<span class=\"error\">No data entered.</span>");
@@ -68,7 +46,32 @@ $RegistrationError = $_SESSION['RegistrationError'];
 		else if($RegistrationError == 11)	
 			print("<span class=\"error\"><strong>Error:</strong><br/>Could not access the database!  Please try again shortly.<br/>");
 ?>
-		<table>
+				</td>
+			</tr>
+			<tr>
+				<td width="125">Username: &nbsp;</td>
+				<td><input name="UserName" type="text" size="20" maxlength="20" /> <span class="instructions"> (3 to 20 characters) </span> </td>
+			</tr>
+			<tr>
+				<td>Password: &nbsp;</td>
+				<td><input name="Password" type="password" size="20" maxlength="20" /> <span class="instructions"> (6 to 20 characters) </span>  </td>
+			</tr>
+			<tr>
+				<td>Confirm Password: &nbsp;</td>
+				<td><input name="ConfirmPassword" type="password" size="20" maxlength="20" /> <span class="instructions"> (6 to 20 characters) </span>  </td>
+			</tr>
+			<tr>
+				<td>First Name: &nbsp;</td>
+				<td><input name="FirstName" type="text" size="20" maxlength="20" /> <span class="instructions"> (2 to 20 characters) </span>  </td>
+			</tr>
+			<tr>
+				<td>Last Name: &nbsp;</td>
+				<td><input name="LastName" type="text" size="20" maxlength="20" /> <span class="instructions"> (2 to 20 characters) </span>  </td>
+			</tr>
+			<tr>
+				<td>Email Address: &nbsp;</td>
+				<td><input name="EmailAddr" type="text" size="40" maxlength="40" /> <span class="instructions"> (Ex. yourname@domain.com) (Maximum 40 characters) </span>  </td>
+			</tr>
 			<tr>
 				<td colspan="2">
 					<input type="submit" value="Submit" />
