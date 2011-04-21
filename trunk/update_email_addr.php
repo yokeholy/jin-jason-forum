@@ -3,7 +3,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 ?>
 
 		<h1 style="text-align:left; margin-top:10px"><strong>Change Email Address</strong></h1>
-		<h3 style="text-align:left; margin-top:10px">You can update your preferred email address on file.</h3>
+		<h3 style="text-align:left; margin-top:10px">You can update your preferred email address on file.</h3><br/>
 		
 		<form name="ChangeEmailAddr" action="update_email_addr_action.php" method="post" style="text-align:left">
 		<table width="100%" align="left" class="control_panel">
