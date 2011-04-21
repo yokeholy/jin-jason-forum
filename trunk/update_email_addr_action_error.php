@@ -45,10 +45,10 @@ $EmailCheck = $_SESSION['EmailCheck'];
 					- Contain only alphanumeric characters, digits, underscores, dots, or hyphens</i><br/>Please try again.</span>");
 		else if($EmailAddrError == 0)
 		{
-			print("<span class=\"error\">Email address has been successfully updated! NOT REALLY, the DATABASE UPDATE IS CURRENTLY COMMENTED OUT</span>");
+			print("<span class=\"error\">Email address has been successfully updated!</span>");
 			
 			if($EmailCheck)
-				print("<br/><span class=\"error\">You have subscribed to email updates! NOT REALLY, the DATABASE UPDATE IS CURRENTLY COMMENTED OUT</span>");
+				print("<br/><span class=\"error\">You have subscribed to email updates!</span>");
 		}
 ?>
 			</td>
