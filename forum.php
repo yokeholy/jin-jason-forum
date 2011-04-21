@@ -16,8 +16,6 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 mysql_query("CREATE TEMPORARY TABLE threadlist SELECT * FROM posts GROUP BY ThreadID");
 	//select ALL ORIGINAL POSTS grouped by the ThreadID so that there will be no duplicated result
 
-
-
 //query for sticky posts from database
 
 mysql_query("CREATE TEMPORARY TABLE templist SELECT * FROM posts WHERE Sticky = 1 ORDER BY PostID DESC");
@@ -54,9 +52,7 @@ while($result = mysql_fetch_array($masterquery))
 		</tr>
 		
 	<?php
-	}
-	else
-	{
+	}else{
 	?>
 		<tr onmouseover="style.backgroundColor='#ddd'" onmouseout="style.backgroundColor='#fff'">
 			<td class="MainForum"><p><strong><a href="/viewthread.php?tid=<?php echo $result['PostID']?>"><span class="Sticky"><?php echo $result['Subject'];?></span></a></strong></p></td>
@@ -70,9 +66,7 @@ while($result = mysql_fetch_array($masterquery))
 }
 mysql_query("DROP TABLE templist");
 mysql_query("DROP TABLE lastupdatedlist");
-
-
-
+//destroy the two temporary tables in order to generate them again for non-sticky posts
 
 //query for regular posts from database
 mysql_query("CREATE TEMPORARY TABLE templist SELECT * FROM posts WHERE Sticky = 0 ORDER BY PostID DESC");
@@ -107,9 +101,7 @@ while($result = mysql_fetch_array($masterquery))
 		</tr>
 		
 	<?php
-	}
-	else
-	{
+	}else{
 	?>
 		<tr onmouseover="style.backgroundColor='#ddd'" onmouseout="style.backgroundColor='#fff'">
 			<td class="MainForum"><p><strong><a href="/viewthread.php?tid=<?php echo $result['PostID']?>"><?php echo $result['Subject'];?></a></strong></p></td>
