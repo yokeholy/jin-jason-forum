@@ -58,10 +58,10 @@ else
 
 		$_SESSION['LoggedIn'] = 1;
 		include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
-		print("<p><span class=\"welcome\">Welcome, $UserName!  You have successfully logged in!</p>");
+		print("<p><span class=\"welcome\">Welcome, <strong>$UserName</strong>!  You have successfully logged in!</p>");
 		
 		$DateAndTime = "$year-$month-$day  $hours:$minutes:$seconds";
-		print("<br/><span class=\"welcome\">Previous login: " . $LastLogin . " (GMT)</span>");
+		print("<br/><span class=\"log\">Previous login: " . $LastLogin . " (GMT)</span>");
 
 		$queryUpdateLastLogin = "UPDATE users SET LastLogin = '".$DateAndTime."' WHERE UserName = '".$UserName."'";
 		mysql_query($queryUpdateLastLogin);
