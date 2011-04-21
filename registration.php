@@ -38,7 +38,7 @@ else
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="submit" value="Submit" />
+					<input type="submit" name="Submit" value="Submit" />
 					<input type="reset" value="Reset" />
 				</td>
 			</tr>			

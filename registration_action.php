@@ -1,8 +1,14 @@
 <?php 
-include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
-
-if(!isset($_POST['UserName']))
+include("{$_SERVER['DOCUMENT_ROOT']}/config/database.php");
+if(!isset($_SESSION['SessionStarted']))
 {
+	session_start();
+	$_SESSION['SessionStarted'] = 1;
+}
+
+if(!isset($_POST['Submit']))
+{
+	include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 	print("<span class=\"error\">Invalid request.  Please return to another area of the forum.</span>");	
 }
 else
@@ -180,9 +186,6 @@ else
 	{
 		$RegistrationError = 0;
 		$_SESSION['RegistrationError'] = $RegistrationError;
-		
-		print("<span class=\"congrats\">Congratulations, $FirstName, you have successfully registered!<br/>");
-		
 		$queryGetUserID = "SELECT UserID FROM users WHERE UserName = '".$UserName."'";
 		$row = (mysql_fetch_row(mysql_query($queryGetUserID)));
 		$UserID = $row[0];
@@ -190,10 +193,16 @@ else
 		$_SESSION['UserID'] = $UserID;
 
 		$_SESSION['UserName'] = $UserName;
+		$_SESSION['LoggedIn'] = 1;
 		$_SESSION['EmailAddr'] = $EmailAddr;
 		$_SESSION['OrigSignup'] = $OrigSignup;
 		$_SESSION['LastLogin'] = $LastLogin;
 		// set this to 1 now that the user has logged in (by way of registration)
+		
+		include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
+		
+		print("<span class=\"congrats\">Congratulations, $FirstName, you have successfully registered!<br/>");
+		
 		$_SESSION['LoggedIn'] = 1;
 	}	
 	?>
