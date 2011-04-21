@@ -36,7 +36,7 @@ $EmailCheck = $_SESSION['EmailCheck'];
 		else if($EmailAddrError == 4)
 			print("<span class=\"error\">Current Password confirmed but no changes requested.</span>");
 		else if($EmailAddrError == 5)
-			print("<span class=\"error\">You have subscribed to email updates! NOT REALLY, the DATABASE UPDATE IS CURRENTLY COMMENTED OUT</span>");
+			print("<span class=\"error\">You have subscribed to email updates!</span>");
 		else if($EmailAddrError == 6)
 			print("<span class=\"error\"><strong>Error:</strong><br/>New email address mismatch. Please try again.</span>");
 		else if($EmailAddrError == 7)
