@@ -22,7 +22,6 @@ else
 	{	
 		// put variables from POST into SESSION (typed in when logging in)
 		$_SESSION['UserName'] = $UserName;
-		$_SESSION['Password'] = $Password;
 
 		// get UserID to use later if needed
 		$queryGetUserID = "SELECT UserID FROM users WHERE UserName = '".$UserName."'";

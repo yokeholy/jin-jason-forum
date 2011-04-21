@@ -11,7 +11,6 @@ else
 
 <?php
 	extract($_POST);
-	$Password = $_SESSION['Password'];
 	$EmailAddr = $_SESSION['EmailAddr'];
 	$UserName = $_SESSION['UserName'];
 	
@@ -80,8 +79,8 @@ else
 		
 		// UNCOMMENT THESE LATER - JUST TAKING OUT FUNCTIONALITY FOR NOW - THEY WORK CORRECTLY:
 			
-		//$querySubscribeEmail = "UPDATE users SET SubscribeEmail = '1' WHERE UserName = '".$UserName."'";
-		//mysql_query($querySubscribeEmail);
+		$querySubscribeEmail = "UPDATE users SET SubscribeEmail = '1' WHERE UserName = '".$UserName."'";
+		mysql_query($querySubscribeEmail);
 
 		die(include("{$_SERVER['DOCUMENT_ROOT']}/update_email_addr_action_error.php")); // terminate script execution
 	}
@@ -111,16 +110,16 @@ else
 			
 			// UNCOMMENT THESE LATER - JUST TAKING OUT FUNCTIONALITY FOR NOW - THEY WORK CORRECTLY:
 				
-			//$queryUpdateEmailAddr = "UPDATE users SET EmailAddr = '".$NewEmailAddr."' WHERE UserName = '".$UserName."'";
-			//mysql_query($queryUpdateEmailAddr);
-			//$_SESSION['EmailAddr'] = $NewEmailAddr;
+			$queryUpdateEmailAddr = "UPDATE users SET EmailAddr = '".$NewEmailAddr."' WHERE UserName = '".$UserName."'";
+			mysql_query($queryUpdateEmailAddr);
+			$_SESSION['EmailAddr'] = $NewEmailAddr;
 
 			if($EmailCheck)
 			{
 				// UNCOMMENT THESE LATER - JUST TAKING OUT FUNCTIONALITY FOR NOW - THEY WORK CORRECTLY:
 
-				//$querySubscribeEmail = "UPDATE users SET SubscribeEmail = '1' WHERE UserName = '".$UserName."'";
-				//mysql_query($querySubscribeEmail);
+				$querySubscribeEmail = "UPDATE users SET SubscribeEmail = '1' WHERE UserName = '".$UserName."'";
+				mysql_query($querySubscribeEmail);
 			}
 			die(include("{$_SERVER['DOCUMENT_ROOT']}/update_email_addr_action_error.php")); // terminate script execution
 		}

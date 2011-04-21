@@ -8,7 +8,6 @@ include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 if(isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'] == 1)
 {
 	$UserName = $_SESSION['UserName'];
-	$Password = $_SESSION['Password'];
 	$EmailAddr = $_SESSION['EmailAddr'];
 	$OrigSignup = $_SESSION['OrigSignup'];
 	
