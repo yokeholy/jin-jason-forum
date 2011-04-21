@@ -43,6 +43,7 @@ else
 			echo ('<p class="error">'.mysql_error().'</p>');
 			else
 			{
+				$_SESSION['tid'] = $pid;
 				$_SESSION['PostResult'] = 1;
 				header ("Location: /addpost_success.php");
 			}
