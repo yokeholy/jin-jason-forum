@@ -24,7 +24,7 @@ else
 		if(!mysql_query("INSERT INTO posts (ThreadID, Subject, PostDate, PostTime, PostContent, PostType, UserID) VALUES ('$tid', '$Subject', '$Date', '$Time', '$Content', '$NewType', '$UserID')"))
 			echo ('<p class="error">'.mysql_error().'</p>');
 		else
-			echo ('<p>Yeah! Your post is online now!</p>');
+			echo ('<p>Yeah! Your post is online now! <a href="javascript: history.go(-1)">Back to the thread</a></p>');
 	}
 	else // original post process
 	{
@@ -37,7 +37,9 @@ else
 			if(!mysql_query("UPDATE posts SET ThreadID = '$pid' WHERE PostID = '$pid'"))
 			echo ('<p class="error">'.mysql_error().'</p>');
 			else
-			echo ('<p>Yeah! Your post is online now!</p>');
+			{
+				echo ('<p>Yeah! Your post is online now! <a href="history.go(-1)">Back to the thread</a></p>');
+			}
 		}
 	}
 ?>
