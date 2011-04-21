@@ -30,28 +30,17 @@ if(!isset($_SESSION['SessionStarted']))
 		<td colspan="2" align="center" class="navigation_bar"><h3 class="navigation_bar">Welcome back,
 			<?php if(isset($_SESSION['UserName'])) echo $_SESSION['UserName']; else echo ('Guest'); ?>!</H3>
 			<h4 class="navigation_bar"><a href="/" class="navigation_bar">Home</a> | <a href="/forum.php" class="navigation_bar">Forum</a> | <a href="/help.php" class="navigation_bar">Help</a> | <a href="/about.php" class="navigation_bar">About Us</a></h4>
-			<?php
-			if(isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'] == 1)
-			{
-			?>
+			<?php if(isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'] == 1){ ?>
 				<h4 class="navigation_bar"><a href="/control_panel.php" class="navigation_bar">User Control Panel</a> | <a href="/functions/logout_action.php" class="navigation_bar">Logout</a></h4>
-			<?php 
-			}
-			else
-			{
-			?>
+			<?php }else{ ?>
 				<form name="Login" action="/functions/login_action.php" method="post">
-					Username:
-					<input name="UserName" type="text" size="10" maxlength="20" />
-					Password:
-					<input name="Password" type="password" size="10" maxlength="20" />
+					Username:<input name="UserName" type="text" size="10" maxlength="20" />
+					Password:<input name="Password" type="password" size="10" maxlength="20" />
 					<input type="submit" value="Login" />
 					<input type="reset" value="Reset" />
 					<a href="/registration.php" class="navigation_bar">First Time User?</a>
 				</form>
-			<?php 
-			}
-			?>
+			<?php } ?>
 		</td>
 	</tr>
 	<tr>
