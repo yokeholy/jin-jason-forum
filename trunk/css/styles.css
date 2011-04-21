@@ -53,7 +53,7 @@ h4
 .about
 {
 	font-size:14px;
-	color: #3366ff;
+	color: #2F4F4F;
 }
 
 .AddPost
@@ -111,6 +111,12 @@ h4
 	color:#000000;
 }
 
+.log
+{
+	font-size:16px;
+	color: #2F4F4F;
+}
+
 .main_container
 {
 	border: 1px solid #39F;
@@ -159,5 +165,5 @@ h4
 .welcome
 {
 	font-size:20px;
-	color: #000000;
+	color: red;
 }
