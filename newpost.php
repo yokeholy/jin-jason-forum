@@ -15,7 +15,7 @@ else
 			<input name="NewType" type="hidden" value="1" />
 			<input name="tid" type="hidden" value="<?php echo $tid; ?>" />
 
-			<table cellpadding="0" cellspacing="0" class="AddPostTable">
+			<table cellpadding="0" cellspacing="0" class="AddPost">
 				<tr>
 					<td class="AddPost"><p><strong>Subject:</strong></p></td>
 					<td class="AddPost"><input name="Subject" size="75" value="Re: <?php echo $subject; ?>" /></td>
@@ -35,7 +35,7 @@ else
 		<h1 align="left">New Thread</h1>
 		<form action="/functions/addpost_action.php" method="post">
 		<input name="NewType" type="hidden" value="0" />
-			<table cellpadding="0" cellspacing="0" class="AddPostTable">
+			<table cellpadding="0" cellspacing="0" class="AddPost">
 				<tr>
 					<td class="AddPost"><p><strong>Subject:</strong></p></td>
 					<td class="AddPost"><input name="Subject" size="75"></td>
