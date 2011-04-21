@@ -1,9 +1,7 @@
 ﻿<?php 
 include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 if(!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != 1)
-{
 	echo('<p class = "error">Please login before posting a new thread or reply.</p>');
-}
 else
 {
 	extract($_POST);
@@ -15,12 +13,12 @@ else
 		<h1 align="left">New Reply</h1>
 		<form action="/functions/addpost_action.php" method="post">
 			<input name="NewType" type="hidden" value="1" />
-			<input name="tid" type="hidden" value="<?php echo $tid ?>" />
+			<input name="tid" type="hidden" value="<?php echo $tid; ?>" />
 
 			<table cellpadding="0" cellspacing="0" class="AddPostTable">
 				<tr>
 					<td class="AddPost"><p><strong>Subject:</strong></p></td>
-					<td class="AddPost"><input name="Subject" size="75" value="Re: <?php echo $subject ?>" /></td>
+					<td class="AddPost"><input name="Subject" size="75" value="Re: <?php echo $subject; ?>" /></td>
 				</tr>
 				<tr>
 					<td class="AddPost"><p><strong>Content:</strong></p></td>
@@ -32,9 +30,7 @@ else
 			</table>
 		</form>
 <?php
-	}
-	else
-	{
+	}else{
 ?>
 		<h1 align="left">New Thread</h1>
 		<form action="/functions/addpost_action.php" method="post">
