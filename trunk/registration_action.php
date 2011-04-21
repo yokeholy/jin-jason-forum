@@ -190,7 +190,6 @@ else
 		$_SESSION['UserID'] = $UserID;
 
 		$_SESSION['UserName'] = $UserName;
-		$_SESSION['Password'] = $Password;
 		$_SESSION['EmailAddr'] = $EmailAddr;
 		$_SESSION['OrigSignup'] = $OrigSignup;
 		$_SESSION['LastLogin'] = $LastLogin;

@@ -11,8 +11,15 @@ else
 
 <?php
 	extract($_POST);
-	$Password = $_SESSION['Password'];
-	$UserName = $_SESSION['UserName'];
+	$UserName = $_SESSION['UserName'];	
+	
+	$queryGetPassword = "SELECT Password FROM users WHERE UserName = '".$UserName."'";
+	
+	$result = mysql_query($queryGetPassword);
+	$numRows = mysql_fetch_array($result);
+	$Password = $numRows[0];
+	
+	$ConfirmOldPassword = MD5($ConfirmOldPassword);
 	
 	$change_password_search_pattern = "/^[_0-9a-z-]{6,20}$/i";
 	
@@ -85,10 +92,9 @@ else
 
 			// UNCOMMENT THESE LATER - JUST TAKING OUT FUNCTIONALITY FOR NOW - THEY WORK CORRECTLY:
 			
-			//$queryUpdatePassword = "UPDATE users SET Password = '".MD5('$NewPassword')."' WHERE UserName = '".$UserName."'";
-			//mysql_query($queryUpdatePassword);
-			//$_SESSION['Password'] = $NewPassword;
-			
+			$queryUpdatePassword = "UPDATE users SET Password = '".MD5($NewPassword)."' WHERE UserName = '".$UserName."'";
+			mysql_query($queryUpdatePassword);
+						
 			die(include("{$_SERVER['DOCUMENT_ROOT']}/update_password_action_error.php")); // terminate script execution
 		}
 	}

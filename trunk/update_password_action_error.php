@@ -35,7 +35,7 @@ $PasswordError = $_SESSION['PasswordError'];
 					A valid password must:<br/><i>&nbsp;&nbsp;&nbsp;&nbsp;- Contain at least 6 characters and not exceed 20 characters<br/>&nbsp;&nbsp;&nbsp;
 					- Not contain spaces<br/>&nbsp;&nbsp;&nbsp;&nbsp;- Only contain alphabetic characters, digits, underscores, or hyphens</i><br/>Please try again.</span>");
 		else if($PasswordError == 0)
-			print("<span class=\"error\">Password has been successfully changed! NOT REALLY, the DATABASE UPDATE IS CURRENTLY COMMENTED OUT</span>");
+			print("<span class=\"error\">Password has been successfully changed!</span>");
 ?>
 		<table>
 			<tr>
