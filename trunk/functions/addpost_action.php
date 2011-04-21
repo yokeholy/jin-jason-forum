@@ -16,6 +16,7 @@ else
 	$Date = date('Y-m-d');
 	$Time = date('H:i:s');
 	$Subject = addslashes($Subject);
+	$Content = nl2br($Content);
 	$Content = addslashes($Content);
 
 	if($NewType == 1) //reply process
