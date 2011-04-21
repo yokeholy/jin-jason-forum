@@ -1,6 +1,5 @@
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
-//session_start();
 ?>
 
 		<h1 style="text-align:left; margin-top:10px"><strong>Change Email Address</strong></h1>
