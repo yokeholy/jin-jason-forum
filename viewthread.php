@@ -1,6 +1,7 @@
 ﻿<?php 
 include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 extract($_GET);
+$_SESSION['tid'] = $tid;
 $query = mysql_query("SELECT * FROM posts WHERE PostID = '$tid'");
 $result = mysql_fetch_array($query);
 if($result && $result['PostType'] != 1)
@@ -11,7 +12,8 @@ if($result && $result['PostType'] != 1)
 	<form action="newpost.php" method="post">
 	<p align="left"><a style="font-size:12px; margin:10px;" href="forum.php">Go Back</a></p>
 	
-		<input name="New Reply" type="submit" value="New Reply" style="left:10px;"/>
+		<input name="NewReply" type="submit" value="New Reply" style="left:10px;"/>
+		<input name="Sticky" type="hidden" value="<?php echo $result['Sticky']; ?>" />
 		<input name="NewType" type="hidden" value="1" />
 		<input name="tid" type="hidden" value="<?php echo $tid; ?>" />
 		<input name="subject" type="hidden" value="<?php echo $result['Subject']; ?>" />
@@ -56,7 +58,7 @@ if($result && $result['PostType'] != 1)
 		</tr>
 	<?php }	?>
 	</table>
-		<input name="New Reply" type="submit" value="New Reply"/>
+		<input name="NewReply" type="submit" value="New Reply"/>
 	</form>
 	<p align="left"><a style="font-size:12px; margin:10px;" href="forum.php">Go Back</a></p>
 	

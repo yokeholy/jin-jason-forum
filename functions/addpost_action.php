@@ -21,12 +21,17 @@ else
 
 	if($NewType == 1) //reply process
 	{
-		if(!mysql_query("INSERT INTO posts (ThreadID, Subject, PostDate, PostTime, PostContent, PostType, UserID) VALUES ('$tid', '$Subject', '$Date', '$Time', '$Content', '$NewType', '$UserID')"))
+		if(!mysql_query("INSERT INTO posts (ThreadID, Subject, PostDate, PostTime, PostContent, PostType, UserID, Sticky) VALUES ('$tid', '$Subject', '$Date', '$Time', '$Content', '$NewType', '$UserID', '$Sticky')"))
 			echo ('<p class="error">'.mysql_error().'</p>');
 		else
-			echo ('<p>Yeah! Your post is online now! <a href="javascript: history.go(-1)">Back to the thread</a></p>');
+		{
+			$_SESSION['PostResult'] = 1;
+			header ("Location: /addpost_success.php");
+		}
 	}
-	else // original post process
+	else
+	
+	// original post process
 	{
 		if(!mysql_query("INSERT INTO posts (Subject, PostDate, PostTime, PostContent, PostType, UserID) VALUES ('$Subject', '$Date', '$Time', '$Content', '$NewType', '$UserID')"))
 			echo ('<p class="error">'.mysql_error().'</p>');
@@ -38,7 +43,8 @@ else
 			echo ('<p class="error">'.mysql_error().'</p>');
 			else
 			{
-				echo ('<p>Yeah! Your post is online now! <a href="history.go(-1)">Back to the thread</a></p>');
+				$_SESSION['PostResult'] = 1;
+				header ("Location: /addpost_success.php");
 			}
 		}
 	}

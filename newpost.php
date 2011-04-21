@@ -13,6 +13,7 @@ else
 		<h1 align="left">New Reply</h1>
 		<form action="/functions/addpost_action.php" method="post">
 			<input name="NewType" type="hidden" value="1" />
+			<input name="Sticky" type="hidden" value="<?php echo $Sticky; ?>" />
 			<input name="tid" type="hidden" value="<?php echo $tid; ?>" />
 
 			<table cellpadding="0" cellspacing="0" class="AddPost">
