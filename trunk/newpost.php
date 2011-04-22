@@ -26,7 +26,7 @@ else
 					<td class="AddPost"><textarea name="Content" cols="100" rows="20"></textarea></td>
 				</tr>
 				<tr align="center">
-					<td colspan="2" class="AddPost"><input name="Submit" type="submit" value="" style="background:url(/images/Post.png); width:100px; height:25px; border:0px; cursor:pointer"><input type="reset" value="" style="background:url(/images/Clear.png); width:100px; height:25px; border:0px; cursor:pointer"></td>
+					<td colspan="2" class="AddPost"><input name="Submit" type="submit" value="" style="background:url(/images/Post.png); width:100px; height:25px; border:0px; cursor:pointer; margin:2px;"><input type="reset" value="" style="background:url(/images/Clear.png); width:100px; height:25px; border:0px; cursor:pointer; margin:2px;"></td>
 				</tr>
 			</table>
 		</form>
@@ -46,7 +46,7 @@ else
 					<td class="AddPost"><textarea name="Content" cols="100" rows="20"></textarea></td>
 				</tr>
 				<tr align="center">
-					<td colspan="2" class="AddPost"><input name="Submit" type="submit" value="" style="background:url(/images/Post.png); width:100px; height:25px; border:0px; cursor:pointer"><input type="reset" value="" style="background:url(/images/Clear.png); width:100px; height:25px; border:0px; cursor:pointer"></td>
+					<td colspan="2" class="AddPost"><input name="Submit" type="submit" value="" style="background:url(/images/Post.png); width:100px; height:25px; border:0px; cursor:pointer; margin:2px;"><input type="reset" value="" style="background:url(/images/Clear.png); width:100px; height:25px; border:0px; cursor:pointer; margin:2px;"></td>
 				</tr>
 			</table>
 		</form>
