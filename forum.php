@@ -1,9 +1,7 @@
 ﻿<?php 
 include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 ?>
-
-<p align="left"><a style="font-size:16px; margin:10px; height:20px;" href="newpost.php">Add a Thread</a></p>
-
+<p align="left"><a href="newpost.php"><img style="margin:10px;" src="images/NewThread.png"></a></p>
 <table class="MainForum" width="90%" cellspacing="0" cellpadding="0">
 	<tr valign="middle" onmouseover="style.backgroundColor='#ddd'" onmouseout="style.backgroundColor='#fff'">
 		<td width="60%" valign="middle" class="MainForum"><p class="TableTitle">Subject</p></td>
@@ -116,7 +114,7 @@ while($result = mysql_fetch_array($masterquery))
 ?>
 </table>
 
-<p align="left"><a style="font-size:16px; margin:10px; height:20px;" href="newpost.php">Add a Thread</a></p>
+<p align="left"><a href="newpost.php"><img style="margin:10px;" src="images/NewThread.png"></a></p>
 
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");

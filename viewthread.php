@@ -12,7 +12,7 @@ if($result && $result['PostType'] != 1)
 	<form action="newpost.php" method="post">
 	<p align="left"><a style="font-size:12px; margin:10px;" href="forum.php">Go Back</a></p>
 	
-		<input name="NewReply" type="submit" value="New Reply" style="left:10px;"/>
+		<input name="NewReply" type="submit" value="" style="background:url(/images/NewReply.png); width:100px; height:25px; border:0px; cursor:pointer; margin:10px;"/>
 		<input name="Sticky" type="hidden" value="<?php echo $result['Sticky']; ?>" />
 		<input name="NewType" type="hidden" value="1" />
 		<input name="tid" type="hidden" value="<?php echo $tid; ?>" />
@@ -58,7 +58,7 @@ if($result && $result['PostType'] != 1)
 		</tr>
 	<?php }	?>
 	</table>
-		<input name="NewReply" type="submit" value="New Reply"/>
+		<input name="NewReply" type="submit" value="" style="background:url(/images/NewReply.png); width:100px; height:25px; border:0px; cursor:pointer; margin:10px"/>
 	</form>
 	<p align="left"><a style="font-size:12px; margin:10px;" href="forum.php">Go Back</a></p>
 	

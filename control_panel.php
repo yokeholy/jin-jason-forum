@@ -43,7 +43,6 @@ if(isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'] == 1)
 	<h3 style="text-align:left; margin-top:10px">Welcome, <?php print($UserName);?>!  You can change view and change your info here.</h3>
 	
 	<div class="control_panel" style="text-align:left; margin-top:10px"/>Current User Info:</div>
-	<form name="ChangeOptions" style="text-align:left">
 		<table width="100%" align="left" class="control_panel">
 			<tr>
 				<td>Username: &nbsp;</td>
@@ -82,7 +81,6 @@ if(isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'] == 1)
 				<td width="220"><a href="/update_email_addr.php" class="change_password">Update Email Address? (click here)</a></td>
 			</tr>
 		</table>
-	</form>
 
 <?php
 } // end if (checking if LoggedIn is valid)

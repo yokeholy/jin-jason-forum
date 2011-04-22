@@ -36,8 +36,8 @@ if(!isset($_SESSION['SessionStarted']))
 				<form name="Login" action="/functions/login_action.php" method="post">
 					Username:<input name="UserName" type="text" size="10" maxlength="20" />
 					Password:<input name="Password" type="password" size="10" maxlength="20" />
-					<input type="submit" value="Login" />
-					<input type="reset" value="Reset" />
+					<input type="submit" value="" style="background:url(/images/Login.png); width:60px; height:20px; border:0px; cursor:pointer"/>
+					<input type="reset" value="" style="background:url(/images/ClearSm.png); width:60px; height:20px; border:0px; cursor:pointer"/>
 					<a href="/registration.php" class="navigation_bar">First Time User?</a>
 				</form>
 			<?php } ?>
