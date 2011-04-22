@@ -74,8 +74,8 @@ $RegistrationError = $_SESSION['RegistrationError'];
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="submit" name="Submit" value="Submit" />
-					<input type="reset" value="Reset" />
+					<input type="submit" name="Submit" value="" style="background:url(/images/Submit.png); width:100px; height:25px; border:0px; cursor:pointer"/>
+					<input type="reset" value="" style="background:url(/images/Reset.png); width:100px; height:25px; border:0px; cursor:pointer"/>
 				</td>
 			</tr>			
 		</table>
