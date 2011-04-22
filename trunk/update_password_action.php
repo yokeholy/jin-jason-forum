@@ -19,7 +19,7 @@ else
 	$numRows = mysql_fetch_array($result);
 	$Password = $numRows[0];
 	
-	$ConfirmOldPassword = MD5($ConfirmOldPassword);
+	
 	
 	$change_password_search_pattern = "/^[_0-9a-z-]{6,20}$/i";
 	
@@ -40,6 +40,7 @@ else
 		$ConfirmNewPasswordIsBlank = 0;
 		
 	$PasswordError = 0;
+	$ConfirmOldPassword = MD5($ConfirmOldPassword);
 		
 	// if all fields are blank
 	if($ConfirmOldPasswordIsBlank && $NewPasswordIsBlank && $ConfirmNewPasswordIsBlank)
