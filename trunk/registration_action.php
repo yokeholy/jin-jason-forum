@@ -9,7 +9,6 @@ if(!isset($_SESSION['SessionStarted']))
 if(!isset($_POST['Submit']))
 {
 	include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
-	echo $_POST['Submit'];
 	print("<span class=\"error\">Invalid request.  Please return to another area of the forum.</span>");	
 }
 else

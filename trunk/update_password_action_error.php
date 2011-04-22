@@ -1,5 +1,7 @@
 <?php
-$PasswordError = $_SESSION['PasswordError'];
+//$PasswordError = $_SESSION['PasswordError'];
+if(isset($PssswordError))
+{
 ?>
 
 	<h1 style="text-align:left; margin-top:10px"><strong>Change Password</strong></h1>
@@ -47,5 +49,10 @@ $PasswordError = $_SESSION['PasswordError'];
 		</table>
 		</form>
 <?php
+}else{
+	include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
+
+	echo('<p class="error">Invalid request.</p>');
+}
 include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
 ?>

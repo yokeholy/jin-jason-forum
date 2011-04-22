@@ -51,42 +51,41 @@ else
 	if($ConfirmOldPasswordIsBlank && $NewEmailAddrIsBlank && $ConfirmNewEmailAddrIsBlank && !$EmailCheck)
 	{
 		$EmailAddrError = 1;
-		$_SESSION['EmailAddrError'] = $EmailAddrError;
-		$_SESSION['EmailCheck'] = $EmailCheck;
-		die(include("{$_SERVER['DOCUMENT_ROOT']}/update_email_addr_action_error.php")); // terminate script execution
+		//$_SESSION['EmailAddrError'] = $EmailAddrError;
+		//$_SESSION['EmailCheck'] = $EmailCheck;
+die(include("{$_SERVER['DOCUMENT_ROOT']}/update_email_addr_action_error.php")); // terminate script execution
 	}
 	// if confirm old password is blank and any other fields have entries
 	else if($ConfirmOldPasswordIsBlank && (!$NewEmailAddrIsBlank || !$ConfirmNewEmailAddrIsBlank || $EmailCheck))
 	{
 		$EmailAddrError = 2;
-		$_SESSION['EmailAddrError'] = $EmailAddrError;
-		$_SESSION['EmailCheck'] = $EmailCheck;		
-		die(include("{$_SERVER['DOCUMENT_ROOT']}/update_email_addr_action_error.php")); // terminate script execution
+		//$_SESSION['EmailAddrError'] = $EmailAddrError;
+		//$_SESSION['EmailCheck'] = $EmailCheck;
+die(include("{$_SERVER['DOCUMENT_ROOT']}/update_email_addr_action_error.php")); // terminate script execution
 	}
 	// if confirm old password (is not blank and) does not match current password
 	else if(!$ConfirmOldPasswordIsBlank && ($Password != $ConfirmOldPassword))
 	{
 		$EmailAddrError = 3;
-		$_SESSION['EmailAddrError'] = $EmailAddrError; 
-		$_SESSION['EmailCheck'] = $EmailCheck;
-		die(include("{$_SERVER['DOCUMENT_ROOT']}/update_email_addr_action_error.php")); // terminate script execution
+		//$_SESSION['EmailAddrError'] = $EmailAddrError;
+		//$_SESSION['EmailCheck'] = $EmailCheck;
+die(include("{$_SERVER['DOCUMENT_ROOT']}/update_email_addr_action_error.php")); // terminate script execution
 	}
 	// if confirm old password is not blank and matches current password, and all other fields are blank
 	else if(!$ConfirmOldPasswordIsBlank && $NewEmailAddrIsBlank && $ConfirmNewEmailAddrIsBlank && !$EmailCheck)
 	{
 		$EmailAddrError = 4;
-		$_SESSION['EmailAddrError'] = $EmailAddrError; 
-		$_SESSION['EmailCheck'] = $EmailCheck;
-		die(include("{$_SERVER['DOCUMENT_ROOT']}/update_email_addr_action_error.php")); // terminate script execution
+		//$_SESSION['EmailAddrError'] = $EmailAddrError;
+		//$_SESSION['EmailCheck'] = $EmailCheck;
+die(include("{$_SERVER['DOCUMENT_ROOT']}/update_email_addr_action_error.php")); // terminate script execution
 	}
 	// if confirm old password is not blank and matches current password, email fields are blank, and checkbox is checked
 	else if(!$ConfirmOldPasswordIsBlank && $NewEmailAddrIsBlank && $ConfirmNewEmailAddrIsBlank && $EmailCheck)
 	{
 		$EmailAddrError = 5;
-		$_SESSION['EmailAddrError'] = $EmailAddrError; 
-		$_SESSION['EmailCheck'] = $EmailCheck;
-		
-		// UNCOMMENT THESE LATER - JUST TAKING OUT FUNCTIONALITY FOR NOW - THEY WORK CORRECTLY:
+		//$_SESSION['EmailAddrError'] = $EmailAddrError;
+		//$_SESSION['EmailCheck'] = $EmailCheck;
+// UNCOMMENT THESE LATER - JUST TAKING OUT FUNCTIONALITY FOR NOW - THEY WORK CORRECTLY:
 			
 		$querySubscribeEmail = "UPDATE users SET SubscribeEmail = '1' WHERE UserName = '".$UserName."'";
 		mysql_query($querySubscribeEmail);
@@ -97,9 +96,9 @@ else
 	else if(!$ConfirmOldPasswordIsBlank && ((!$NewEmailAddrIsBlank || !$ConfirmNewEmailAddrIsBlank) && $NewEmailAddr != $ConfirmNewEmailAddr))
 	{
 		$EmailAddrError = 6;
-		$_SESSION['EmailAddrError'] = $EmailAddrError; 
-		$_SESSION['EmailCheck'] = $EmailCheck;
-		die(include("{$_SERVER['DOCUMENT_ROOT']}/update_email_addr_action_error.php")); // terminate script execution
+		//$_SESSION['EmailAddrError'] = $EmailAddrError;
+		//$_SESSION['EmailCheck'] = $EmailCheck;
+die(include("{$_SERVER['DOCUMENT_ROOT']}/update_email_addr_action_error.php")); // terminate script execution
 	}
 	// if confirm old password matches current password, and New Email Address matches Confirm New Email Address, but don't conform to correct format
 	else if(!$ConfirmOldPasswordIsBlank && ((!$NewEmailAddrIsBlank || !$ConfirmNewEmailAddrIsBlank) && $NewEmailAddr == $ConfirmNewEmailAddr))
@@ -107,17 +106,16 @@ else
 		if(!preg_match($change_email_search_pattern, $NewEmailAddr) || !preg_match($change_email_search_pattern, $ConfirmNewEmailAddr))
 		{
 			$EmailAddrError = 7;
-			$_SESSION['EmailAddrError'] = $EmailAddrError; 
-			$_SESSION['EmailCheck'] = $EmailCheck;
-			die(include("{$_SERVER['DOCUMENT_ROOT']}/update_email_addr_action_error.php")); // terminate script execution
+		//$_SESSION['EmailAddrError'] = $EmailAddrError;
+		//$_SESSION['EmailCheck'] = $EmailCheck;
+die(include("{$_SERVER['DOCUMENT_ROOT']}/update_email_addr_action_error.php")); // terminate script execution
 		}
 		else
 		{
 			$EmailAddrError = 0;
-			$_SESSION['EmailAddrError'] = $EmailAddrError; 
-			$_SESSION['EmailCheck'] = $EmailCheck;
-			
-			// UNCOMMENT THESE LATER - JUST TAKING OUT FUNCTIONALITY FOR NOW - THEY WORK CORRECTLY:
+		//$_SESSION['EmailAddrError'] = $EmailAddrError;
+		//$_SESSION['EmailCheck'] = $EmailCheck;
+// UNCOMMENT THESE LATER - JUST TAKING OUT FUNCTIONALITY FOR NOW - THEY WORK CORRECTLY:
 				
 			$queryUpdateEmailAddr = "UPDATE users SET EmailAddr = '".$NewEmailAddr."' WHERE UserName = '".$UserName."'";
 			mysql_query($queryUpdateEmailAddr);

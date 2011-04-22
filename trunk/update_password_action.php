@@ -46,35 +46,35 @@ else
 	if($ConfirmOldPasswordIsBlank && $NewPasswordIsBlank && $ConfirmNewPasswordIsBlank)
 	{
 		$PasswordError = 1;
-		$_SESSION['PasswordError'] = $PasswordError; 
+		//$_SESSION['PasswordError'] = $PasswordError; 
 		die(include("{$_SERVER['DOCUMENT_ROOT']}/update_password_action_error.php")); // terminate script execution
 	}
 	// if confirm old password is blank and any other fields have entries
 	else if($ConfirmOldPasswordIsBlank && (!$NewPasswordIsBlank || !$ConfirmNewPasswordIsBlank))
 	{
 		$PasswordError = 2;
-		$_SESSION['PasswordError'] = $PasswordError;
+		//$_SESSION['PasswordError'] = $PasswordError;
 		die(include("{$_SERVER['DOCUMENT_ROOT']}/update_password_action_error.php")); // terminate script execution
 	}
 	// if confirm old password (is not blank and) does not match current password
 	else if(!$ConfirmOldPasswordIsBlank && ($Password != $ConfirmOldPassword))
 	{
 		$PasswordError = 3;
-		$_SESSION['PasswordError'] = $PasswordError;
+		//$_SESSION['PasswordError'] = $PasswordError;
 		die(include("{$_SERVER['DOCUMENT_ROOT']}/update_password_action_error.php")); // terminate script execution
 	}
 	// if confirm old password is not blank and matches current password, and all other fields are blank
 	else if(!$ConfirmOldPasswordIsBlank && $NewPasswordIsBlank && $ConfirmNewPasswordIsBlank)
 	{
 		$PasswordError = 4;
-		$_SESSION['PasswordError'] = $PasswordError;
+		//$_SESSION['PasswordError'] = $PasswordError;
 		die(include("{$_SERVER['DOCUMENT_ROOT']}/update_password_action_error.php")); // terminate script execution
 	}
 	// if confirm old password matches current password, and New Password and Confirm New Password don't match		
 	else if(!$ConfirmOldPasswordIsBlank && ((!$NewPasswordIsBlank || !$ConfirmNewPasswordIsBlank) && $NewPassword != $ConfirmNewPassword))
 	{
 		$PasswordError = 5;
-		$_SESSION['PasswordError'] = $PasswordError;
+		//$_SESSION['PasswordError'] = $PasswordError;
 		die(include("{$_SERVER['DOCUMENT_ROOT']}/update_password_action_error.php")); // terminate script execution
 	}
 	// if confirm old password matches current password, and New Password matches Confirm New Password, but don't conform to correct password format
@@ -83,13 +83,13 @@ else
 		if(!preg_match($change_password_search_pattern, $NewPassword) || !preg_match($change_password_search_pattern, $ConfirmNewPassword))
 		{
 			$PasswordError = 6;
-			$_SESSION['PasswordError'] = $PasswordError;
+			//$_SESSION['PasswordError'] = $PasswordError;
 			die(include("{$_SERVER['DOCUMENT_ROOT']}/update_password_action_error.php")); // terminate script execution
 		}
 		else
 		{
 			$PasswordError = 0;
-			$_SESSION['PasswordError'] = $PasswordError;
+			//$_SESSION['PasswordError'] = $PasswordError;
 
 			// UNCOMMENT THESE LATER - JUST TAKING OUT FUNCTIONALITY FOR NOW - THEY WORK CORRECTLY:
 			

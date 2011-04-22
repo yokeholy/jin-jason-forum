@@ -1,6 +1,8 @@
 <?php
-$EmailAddrError = $_SESSION['EmailAddrError'];
-$EmailCheck = $_SESSION['EmailCheck'];
+//$EmailAddrError = $_SESSION['EmailAddrError'];
+//$EmailCheck = $_SESSION['EmailCheck'];
+if(isset($EmailAddrError))
+{
 ?>
 	<h1 style="text-align:left; margin-top:10px"><strong>Change Email Address</strong></h1>
 	<h3 style="text-align:left; margin-top:10px">You can update your preferred email address on file.</h3><br/>
@@ -62,5 +64,10 @@ $EmailCheck = $_SESSION['EmailCheck'];
 	</form>
 
 <?php
+}else{
+	include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
+
+	echo('<p class="error">Invalid request.</p>');
+}
 include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
 ?>
