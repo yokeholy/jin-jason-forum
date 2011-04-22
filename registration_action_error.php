@@ -1,7 +1,10 @@
 ﻿<?php 
 include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 
-$RegistrationError = $_SESSION['RegistrationError'];
+//$RegistrationError = $_SESSION['RegistrationError'];
+if(isset($RegistrationError))
+{
+
 ?>
 	<h1 style="text-align:left; margin-top:10px"><strong>First Time User Registration</strong></h1>
 	<div class="instructions2" style="text-align:left; margin-top:10px"/>Please fill in all fields below and click Submit.
@@ -82,5 +85,8 @@ $RegistrationError = $_SESSION['RegistrationError'];
 	</form>
 
 <?php
+}else{
+	echo('<p class="error">Invalid request.</p>');
+}
 include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
 ?>
