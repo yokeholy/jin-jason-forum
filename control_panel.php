@@ -45,8 +45,8 @@ if(isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'] == 1)
 	<div class="control_panel" style="text-align:left; margin-top:10px"/>Current User Info:</div>
 		<table width="100%" align="left" class="control_panel">
 			<tr>
-				<td>Username: &nbsp;</td>
-				<td><?php print($UserName);?></td>
+				<td width="214">Username: &nbsp;</td>
+				<td width="770"><?php print($UserName);?></td>
 			</tr>
 			<tr>
 				<td>Email Address: &nbsp;</td>
@@ -69,20 +69,24 @@ if(isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'] == 1)
 				<td><?php print($ThreadsStarted);?></td>
 			</tr>			
 			<tr>
-				<td><br/></td>
+				<td colspan="2"><br/></td>
 			</tr>
 			<tr>
-				<td><a href="/update_password.php" class="change_password">Change Password? (click here)</a></td>
+				<td colspan="2"><a href="/update_password.php" class="change_password">Change Password? (click here)</a></td>
 			</tr>
 			<tr>
-				<td><br/></td>
+				<td colspan="2"><br/></td>
 			</tr>
 			<tr>
-				<td width="220"><a href="/update_email_addr.php" class="change_password">Update Email Address? (click here)</a></td>
+				<td colspan="2"><a href="/update_email_addr.php" class="change_password">Update Email Address? (click here)</a></td>
 			</tr>
 		</table>
 
 <?php
 } // end if (checking if LoggedIn is valid)
+else
+{
+	echo ('<p class="error">You do not have access to this operation</p>');
+}
 include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
 ?>

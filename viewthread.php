@@ -18,7 +18,7 @@ if($result && $result['PostType'] != 1)
 		<input name="tid" type="hidden" value="<?php echo $tid; ?>" />
 		<input name="subject" type="hidden" value="<?php echo $result['Subject']; ?>" />
 	
-	<table class="ThreadTable" width="100%">
+	<table class="ThreadTable" width="100%" style="word-break:break-all;">
 		<tr>
 			<td rowspan="2" class="Thread" width="20%">
 				<p>Posted by <strong><?php echo $resultUser['UserName']; ?></strong><br />

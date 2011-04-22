@@ -202,7 +202,7 @@ else
 		
 		include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 		
-		print("<span class=\"congrats\">Congratulations, $FirstName, you have successfully registered!<br/>");
+		print("<span class=\"welcome\">Congratulations, <strong>$FirstName</strong>, you have successfully registered!<br/>");
 		
 		$_SESSION['LoggedIn'] = 1;
 	}	
