@@ -5,7 +5,12 @@ body
 	top:0px;
 }
 
-img {border: none}
+img 
+{
+	border: none;
+	margin-left:2px;
+	margin-right:2px;
+}
 
 a
 {
