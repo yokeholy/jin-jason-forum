@@ -1,5 +1,6 @@
 <?php 
 include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
+extract($_POST);
 
 if(!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != 1)
 {
@@ -9,9 +10,16 @@ else if(!isset($_POST['Submit']) || $_POST['Submit'] != "")
 {
 	echo('<p class = "error">Invalid request! Please add a post through the right form.</p>');
 }
+else if($Subject == "")
+{
+	echo('<p class = "error">Sorry, your Subject field is empty.</p>');
+}
+else if($Content == "")
+{
+	echo('<p class = "error">Sorry, your Content field is empty.</p>');
+}
 else
 {
-	extract($_POST);
 	extract($_SESSION);
 	$Date = date('Y-m-d');
 	$Time = date('H:i:s');
