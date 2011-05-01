@@ -67,7 +67,7 @@ if(isset($EmailAddrError))
 }else{
 	include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
 
-	echo('<p class="error">Invalid request.</p>');
+	print("<span class=\"error\">Invalid request.  Please return to another area of the forum.</span>");
 }
 include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
 ?>
