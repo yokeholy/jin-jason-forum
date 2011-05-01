@@ -1,6 +1,6 @@
 <?php
 //$PasswordError = $_SESSION['PasswordError'];
-if(isset($PssswordError))
+if(isset($PasswordError))
 {
 ?>
 
