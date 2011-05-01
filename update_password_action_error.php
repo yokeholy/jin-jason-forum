@@ -50,8 +50,6 @@ if(isset($PasswordError))
 		</form>
 <?php
 }else{
-	include("{$_SERVER['DOCUMENT_ROOT']}/header.php");
-
 	echo('<p class="error">Invalid request.</p>');
 }
 include("{$_SERVER['DOCUMENT_ROOT']}/footer.php");
